@@ -5,8 +5,9 @@ myApp.controller('UserController', function(UserService, $mdDialog) {
   vm.userObject = UserService.userObject;
 
   vm.drove = function(ev) {
+    console.log("Add I drove to db");
     // add $http put req here to update 'usage > trips_this_week'
-
+    $http.put('/user/drove').then
     $mdDialog.show(
     $mdDialog.confirm()
     .parent(angular.element(document.querySelector('#popupContainer')))
