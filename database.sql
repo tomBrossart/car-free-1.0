@@ -13,6 +13,7 @@ CREATE TABLE "users" (
    "last_login" date
 );
 
+-- VERIFY ALL UPDATES ARE IN HERE
 CREATE TABLE "usage" (
 	"id" serial primary key,
      "current_week" date,
@@ -23,3 +24,12 @@ CREATE TABLE "usage" (
 	 "goal_date" date,
 	 "cravings_this_week" integer
 );
+
+CREATE TABLE "motivation" (
+	"id" serial primary key,
+	"img" varchar (120),
+	"msg" varchar (120),
+);
+
+INSERT INTO "motivation" ("img", "msg")
+VALUES ('http://lorempixel.com/400/200', 'Keep going!');

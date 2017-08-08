@@ -4,8 +4,12 @@
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <h4>You've driven <span> {{ uc.thisWeeksTrips }} </span> times this week</h4>
     <h4>And your goal is to only drive <span> {{ uc.thisWeeksGoal }} </span> times this week</h4>
-    <button ng-click="uc.drove(ev)" class="btn btn-default" name="button">I drove</button>
-    <button class="btn btn-default" name="button">I had a craving</button>
+    <div class="row">
+      <img ng-src=" {{ uc.motivationImg }} " alt="Motivational Img">
+      <h6 class="md-subhead"> {{ uc.motivationMsg }} </h6>
+    </div>
+    <button ng-click="uc.drove(ev)" class="btn btn-primary" name="button">I drove</button>
+    <button ng-click="uc.craving(ev)" class="btn btn-secondary" name="button">I had a craving</button>
     <br>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
 </div>
