@@ -90,7 +90,7 @@ router.get('/dash', function(req, res) {
         } else {
           console.log("dash get result", result.rows);
           // Send back the results
-          res.send({data: result.rows});
+          res.send(result.rows);
         }
       });
       }

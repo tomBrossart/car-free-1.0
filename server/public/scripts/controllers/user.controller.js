@@ -34,10 +34,10 @@ vm.thisWeeksTrips = 8;
     $http.get('/user/dash').then(function(response) {
       console.log('Response on refreshDash: ', response);
       // if(response.data.username) {
-        console.log('Inside if in refreshDash: ', response.data.data);
+        console.log('Inside if in refreshDash: ', response.data[0].total_trips);
         console.log('thisWeeksTrips: ', vm.thisWeeksTrips);
-        vm.thisWeeksTrips = response.data.trips_this_week;
-        vm.thisWeeksGoal = response.data.total_trips;
+        vm.thisWeeksTrips = response.data[0].trips_this_week;
+        vm.thisWeeksGoal = response.data[0].total_trips;
       // }
     });
   };
