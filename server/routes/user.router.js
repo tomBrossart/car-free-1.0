@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var pool = require('../modules/pool.js');
+
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
@@ -9,7 +11,8 @@ router.get('/', function(req, res) {
     // send back user object from database
     console.log('logged in', req.user);
     var userInfo = {
-      username : req.user.username
+      username : req.user.username,
+      userID : req.user.id
     };
     res.send(userInfo);
   } else {
@@ -28,5 +31,112 @@ router.get('/logout', function(req, res) {
   res.sendStatus(200);
 });
 
+// update db with "I drove" button increment
+router.put('/drove', function(req, res) {
+  console.log('put /user/drove route');
+
+  pool.connect(function(err, client, done) {
+    if(err) {
+      console.log("Error connecting to db: ", err);
+      res.sendStatus(500);
+      next(err); // verfiy what this line is doing
+    } else {
+      // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
+    var queryText = "UPDATE usage SET total_trips = total_trips + 1, trips_this_week = trips_this_week + 1 WHERE user_id = $1;";
+    client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+      client.end();
+      if(errorMakingQuery) {
+        console.log('Attempted to query with', queryText);
+        console.log('Error making query', errorMakingQuery);
+        res.sendStatus(500);
+      } else {
+        console.log(result);
+        // Send back the results
+        res.sendStatus(200);
+      }
+    });
+    }
+  });
+});
+
+// get updated usage data and send back to client
+router.get('/dash', function(req, res) {
+  console.log('get /user/dash route');
+  // check if logged in
+  if(req.isAuthenticated()) {
+    // send back user object from database
+    console.log('logged in', req.user);
+    var userInfo = {
+      username : req.user.username,
+      userID : req.user.id
+    };
+    pool.connect(function(err, client, done) {
+      if(err) {
+        console.log("Error connecting to db: ", err);
+        res.sendStatus(500);
+        next(err); // verfiy what this line is doing
+      } else {
+      var queryText = "SELECT * FROM usage WHERE user_id = $1;";
+      client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        client.end();
+        if(errorMakingQuery) {
+          console.log('Attempted to query with', queryText);
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          console.log("dash get result", result.rows);
+          // Send back the results
+          res.send(result.rows);
+        }
+      });
+      }
+    });
+  } else {
+    // failure best handled on the server. do redirect here.
+    console.log('not logged in');
+    // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
+    res.send(false);
+  }
+});
+
+// get motivation img and msg
+router.get('/load', function(req, res) {
+  console.log('get /user/load route');
+  // check if logged in
+  if(req.isAuthenticated()) {
+    // send back user object from database
+    console.log('logged in', req.user);
+    var userInfo = {
+      username : req.user.username,
+      userID : req.user.id
+    };
+    pool.connect(function(err, client, done) {
+      if(err) {
+        console.log("Error connecting to db: ", err);
+        res.sendStatus(500);
+        next(err); // verfiy what this line is doing
+      } else {
+      var queryText = 'SELECT "msg", "img" FROM motivation JOIN users ON "users"."motivation" = "motivation"."selection" WHERE "users"."id" = $1;';
+      client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        client.end();
+        if(errorMakingQuery) {
+          console.log('Attempted to query with', queryText);
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          console.log("user/load get result", result.rows);
+          // Send back the results
+          res.send(result.rows);
+        }
+      });
+      }
+    });
+  } else {
+    // failure best handled on the server. do redirect here.
+    console.log('not logged in');
+    // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
+    res.send(false);
+  }
+});
 
 module.exports = router;
