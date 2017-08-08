@@ -26,16 +26,19 @@ myApp.controller('UserController', function($http, $location, UserService, $mdDi
   );
 };
 
+vm.thisWeeksTrips = 8;
 
 // method to get refreshed user dashboard data
   vm.refreshDash = function() {
     console.log("Refreshing Dashboard");
-    $http.get('/user').then(function(response) {
-      if(response.data.username) {
-        console.log('Response on refreshDash: ', response);
-        vm.thisWeeksTrips = response.data.data.trips;
-        vm.thisWeeksGoal = response.data.goal;
-      }
+    $http.get('/user/dash').then(function(response) {
+      console.log('Response on refreshDash: ', response);
+      // if(response.data.username) {
+        console.log('Inside if in refreshDash: ', response.data.data);
+        console.log('thisWeeksTrips: ', vm.thisWeeksTrips);
+        vm.thisWeeksTrips = response.data.trips_this_week;
+        vm.thisWeeksGoal = response.data.total_trips;
+      // }
     });
   };
 
