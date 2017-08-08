@@ -29,11 +29,11 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   // when user clicks "I had a craving" button
   $scope.craving = function(ev) {
     console.log('User had a craving, show them support');
-    // add $http put req here to update 'usage > trips_this_week'
-    $http.get('/user/craving').then(function(response) {
-      console.log("Res from $scope.craving: ", response);
-      $scope.refreshDash();
-    });
+    // do I need to make a get request here? yes, but for now I can hardcode tabDialog 
+    // $http.get('/user/craving').then(function(response) {
+    //   console.log("Res from $scope.craving: ", response);
+    //   $scope.refreshDash();
+    // });
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/views/templates/tabDialog.tmpl.html',
