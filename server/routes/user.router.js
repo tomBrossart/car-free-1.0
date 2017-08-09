@@ -25,10 +25,8 @@ router.get('/', function(req, res) {
           console.log('Error making query', errorMakingQuery);
           res.sendStatus(500);
         } else {
-          console.log(result);
+          console.log("result from completed_registration query", result);
           // Send back the results
-
-          console.log('logged in', req.user);
           var userInfo = {
             username : req.user.username,
             userID : req.user.id,

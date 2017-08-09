@@ -49,7 +49,7 @@
                 <md-content layout-margin> <p> This sidenav is not showing any backdrop,
                   where users can click on it, to close the sidenav. </p>
                   <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
-                  <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+                  <md-button class="btn btn-default" ng-click="uc.userService.logout(); uc.userService.toggleLeft()">Log Out</md-button>
                 </md-content>
               </md-sidenav>
               </section>

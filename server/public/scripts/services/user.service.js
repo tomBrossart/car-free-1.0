@@ -20,17 +20,10 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
             // user has a curret session on the server
             userObject.userName = response.data.username;
             console.log('UserService -- getuser -- User Data: ', userObject.userName);
-            if(response.data.newUser) {
-              $location.path("/profile/two");
-            }
           } else {
               console.log('UserService -- getuser -- failure', response.data);
               // user has no session, bounce them back to the login page
-              if(response.data.newUser) {
-                $location.path("/profile/two");
-              } else {
               $location.path("/home");
-            }
           }
       },function(response){
         console.log('UserService -- getuser -- failure: ', response);

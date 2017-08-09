@@ -38,7 +38,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       //   getuser : function(UserService){
       //     return UserService.getuser();
       //   }
-      // } THIS WAS MY WHOLE FUCKING ISSUE
+      // } THIS WAS MY WHOLE  ISSUE
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
