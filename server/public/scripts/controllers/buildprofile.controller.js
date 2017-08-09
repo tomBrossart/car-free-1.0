@@ -1,8 +1,13 @@
 myApp.controller('BuildController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('BuildController created');
 
+// post users selection to db and progress user to next buildProfile page
   $scope.selectMotivation = function(tile) {
     console.log("user selected", tile);
+    // $http.post('/profile/one').then(function(response) {
+    //   console.log("Res from selectMotivation: ", response);
+      $location.path('/profile/two');
+    // });
   };
 
   this.tiles = buildGridModel({

@@ -6,15 +6,44 @@ var pool = require('../modules/pool.js');
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
   console.log('get /user route');
+  // query db to see if they've completed buildProfile, if no have client redirect to buildProfile
+
   // check if logged in
   if(req.isAuthenticated()) {
-    // send back user object from database
-    console.log('logged in', req.user);
-    var userInfo = {
-      username : req.user.username,
-      userID : req.user.id
-    };
-    res.send(userInfo);
+
+    pool.connect(function(err, client, done) {
+      if(err) {
+        console.log("Error connecting to db: ", err);
+        res.sendStatus(500);
+        next(err); // verfiy what this line is doing
+      } else {
+      var queryText = "SELECT completed_registration FROM users WHERE id = $1;";
+      client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        client.end();
+        if(errorMakingQuery) {
+          console.log('Attempted to query with', queryText);
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          console.log(result);
+          // Send back the results
+
+          console.log('logged in', req.user);
+          var userInfo = {
+            username : req.user.username,
+            userID : req.user.id,
+            newUser : false
+          };
+            if(result === false) {
+              userInfo.newUser = true;
+            }
+            res.send(userInfo);
+          }
+      });
+      }
+    });
+
+
   } else {
     // failure best handled on the server. do redirect here.
     console.log('not logged in');

@@ -22,14 +22,23 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/profile', {
-      templateUrl: '/views/templates/buildprofile.html',
+    .when('/profile/two', {
+      templateUrl: '/views/partials/bp2.html',
       controller: 'BuildController as bc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
         }
       }
+    })
+    .when('/profile', {
+      templateUrl: '/views/templates/buildprofile.html',
+      controller: 'BuildController as bc',
+      // resolve: {
+      //   getuser : function(UserService){
+      //     return UserService.getuser();
+      //   }
+      // } THIS WAS MY WHOLE FUCKING ISSUE
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',

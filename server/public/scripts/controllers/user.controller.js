@@ -10,7 +10,6 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   // when user clicks "I drove" button
   $scope.drove = function(ev) {
     console.log("Increment current usage by 1 in db");
-    // add $http put req here to update 'usage > trips_this_week'
     $http.put('/user/drove').then(function(response) {
       console.log("Res from $scope.drove: ", response);
       $scope.refreshDash();
