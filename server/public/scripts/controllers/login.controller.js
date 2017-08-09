@@ -1,4 +1,4 @@
-myApp.controller('LoginController', function($http, $location, UserService) {
+myApp.controller('LoginController', function($http, $location, $mdToast, UserService) {
     console.log('LoginController created');
     var vm = this;
     vm.user = {
@@ -28,6 +28,16 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         });
       }
     };
+
+    vm.congratsToast = function($event) {
+    console.log('Big first step message');
+    $mdToast.show($mdToast.simple()
+    .textContent('Congrats on taking the first step!')
+    .highlightAction(true)
+    .position('top left')
+    );
+  };
+
 
     vm.registerUser = function() {
       console.log('LoginController -- registerUser');
