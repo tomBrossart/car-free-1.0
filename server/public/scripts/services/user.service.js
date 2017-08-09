@@ -3,7 +3,7 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
 
   var userObject = {};
   var originatorEv;
-  
+
   function buildToggler(componentId) {
   return function() {
     $mdSidenav(componentId).toggle();
@@ -23,7 +23,7 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
           } else {
               console.log('UserService -- getuser -- failure');
               // user has no session, bounce them back to the login page
-              $location.path("/home");
+              $location.path("/profile");
           }
       },function(response){
         console.log('UserService -- getuser -- failure: ', response);
@@ -39,13 +39,8 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
       });
     },
 
-    // openSidenav : function($mdSidenav, ev) {
-    //   originatorEv = ev;
-    //   $mdSidenav.open(ev);
-    // },
-    //
     toggleLeft : buildToggler('left'),
-    toggleRight : buildToggler('right'),
+    toggleRight : buildToggler('right')
 
 
   };

@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Car Free</title>
+        <!-- important line to help mobile view -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
         <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
 
@@ -35,9 +38,9 @@
             <md-icon class="material-icons">menu</md-icon>
           </md-button>
 
-          <div layout="column" style="height: 500px;" ng-cloak>
+          <div layout="column" ng-cloak>
             <section layout="row" flex>
-              <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+              <md-sidenav class="md-sidenav-left md-whiteframe-z6" md-component-id="left"
               md-disable-backdrop md-whiteframe="4">
               <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
               </md-toolbar>
