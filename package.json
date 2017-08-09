@@ -1,16 +1,17 @@
 {
-  "name": "express_router_lecture_angular",
+  "name": "carFree",
   "version": "1.0.0",
-  "description": "",
+  "description": "A mobile web application to help users track their progress towards being carFree.",
   "main": "index.js",
   "scripts": {
     "test": "nodemon server/server.js",
     "start": "node server/server.js"
   },
-  "author": "Scott Bromander, Kris Szafranski",
+  "author": "Tom Brossart",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-material-icons": "^0.7.1",
     "angular-route": "^1.6.5",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.13.3",

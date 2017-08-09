@@ -1,7 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
 
-    <h1 id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
+    <h1 flex id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
     <h4>You've driven <span> {{ thisWeeksTrips }} </span> times this week</h4>
     <h4>And your goal is to only drive <span> {{ thisWeeksGoal }} </span> times this week</h4>
     <div class="row">
@@ -12,5 +12,5 @@
     <md-button ng-click="craving($event)" class="md-primary md-raised">
       I had a craving
     </md-button>
-    <md-button class="md-secondary md-raised" ng-click="userService.logout()">Log Out</md-button>
+    <md-button class="md-secondary md-raised" ng-click="uc.userService.logout()">Log Out</md-button>
 </div>

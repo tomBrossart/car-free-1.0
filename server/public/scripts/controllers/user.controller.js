@@ -1,8 +1,9 @@
 myApp.controller('UserController', function($scope, $http, $location, UserService, $mdDialog) {
   console.log('UserController created');
-  // var vm = this; TRYING TO SWITCH TO $scope
-  $scope.userService = UserService;
-  $scope.userObject = UserService.userObject;
+  var vm = this;
+  //  TRYING TO SWITCH TO $scope
+  vm.userService = UserService;
+  vm.userObject = UserService.userObject;
 
   // when user clicks "I drove" button
   $scope.drove = function(ev) {
@@ -29,7 +30,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   // when user clicks "I had a craving" button
   $scope.craving = function(ev) {
     console.log('User had a craving, show them support');
-    // do I need to make a get request here? yes, but for now I can hardcode tabDialog 
+    // do I need to make a get request here? yes, but for now I can hardcode tabDialog
     // $http.get('/user/craving').then(function(response) {
     //   console.log("Res from $scope.craving: ", response);
     //   $scope.refreshDash();
