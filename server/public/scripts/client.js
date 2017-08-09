@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -16,6 +16,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/profile', {
+      templateUrl: '/views/templates/buildprofile.html',
+      controller: 'BuildController as bc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

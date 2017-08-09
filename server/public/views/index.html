@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Car Free</title>
+        <!-- important line to help mobile view -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
         <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
 
@@ -18,17 +21,58 @@
         <script type="text/javascript" src="scripts/controllers/info.controller.js"></script>
         <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
         <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
+        <script type="text/javascript" src="scripts/controllers/buildprofile.controller.js"></script>
         <script type="text/javascript" src="scripts/services/user.service.js"></script>
 
-        <link rel="stylesheet" href="styles/style.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="styles/style.css">
+
 
     </head>
 
     <body ng-app="myApp" layout="column">
-      <header ng-include="'/views/partials/header.html'"></header>
+      <!-- Container #1 -->
 
-      <main ng-view></main>
+      <md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2" ng-controller="UserController as uc">
+        <div class="md-toolbar-tools" layout="row">
+
+          <md-button aria-label="Open sidenav" ng-click="uc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
+            <md-icon class="material-icons">menu</md-icon>
+          </md-button>
+
+          <div layout="column" ng-cloak>
+            <section layout="row" flex>
+              <md-sidenav class="md-sidenav-left md-whiteframe-z6" md-component-id="left"
+              md-disable-backdrop md-whiteframe="4">
+              <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
+              </md-toolbar>
+                <md-content layout-margin> <p> This sidenav is not showing any backdrop,
+                  where users can click on it, to close the sidenav. </p>
+                  <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
+                  <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+                </md-content>
+              </md-sidenav>
+              </section>
+            </div>
+          <div class="welcomeMsg" layout="column" flex=70>
+            <md-truncate>carFree</md-truncate>
+          </div>
+        </div>
+
+      <!-- Container #2 -->
+        <div flex layout="row">
+
+    		<!-- Container #3 -->
+            <md-content flex id="content">
+
+              <main ng-view></main>
+
+
+            </md-content>
+
+        </div>
+      </md-toolbar>
+
 
     </body>
 </html>

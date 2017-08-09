@@ -1,9 +1,11 @@
-myApp.controller('UserController', function($scope, $http, $location, UserService, $mdDialog) {
+myApp.controller('UserController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('UserController created');
   var vm = this;
   //  TRYING TO SWITCH TO $scope
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
+
+  // MAYBE ADD THIS BACK LATER ... ['$scope', '$http', '$location','$mdBottomSheet','$mdSidenav', '$mdDialog',
 
   // when user clicks "I drove" button
   $scope.drove = function(ev) {
@@ -82,8 +84,6 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
 
   // method to display additional motivation msg/img
-
-
   $scope.loadDash();
   $scope.refreshDash();
 
@@ -100,5 +100,5 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
       $mdDialog.hide(answer);
     };
   }
-
+// if I add back [] of injectors add closing ] here
 });

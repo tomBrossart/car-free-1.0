@@ -1,7 +1,14 @@
-myApp.factory('UserService', function($http, $location){
+myApp.factory('UserService', function($http, $location, $mdSidenav){
   console.log('UserService Loaded');
 
   var userObject = {};
+  var originatorEv;
+
+  function buildToggler(componentId) {
+  return function() {
+    $mdSidenav(componentId).toggle();
+  };
+}
 
   return {
     userObject : userObject,
@@ -16,7 +23,7 @@ myApp.factory('UserService', function($http, $location){
           } else {
               console.log('UserService -- getuser -- failure');
               // user has no session, bounce them back to the login page
-              $location.path("/home");
+              $location.path("/profile");
           }
       },function(response){
         console.log('UserService -- getuser -- failure: ', response);
@@ -30,6 +37,11 @@ myApp.factory('UserService', function($http, $location){
         console.log('UserService -- logout -- logged out');
         $location.path("/home");
       });
-    }
+    },
+
+    toggleLeft : buildToggler('left'),
+    toggleRight : buildToggler('right')
+
+
   };
 });
