@@ -7,14 +7,14 @@
 
     <div layout="column" style="height: 500px;" ng-cloak>
       <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left" md-component-id="left"
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
         md-disable-backdrop md-whiteframe="4">
-        <md-toolbar class="md-theme-indigo"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
-          <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+        <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
         </md-toolbar>
           <md-content layout-margin> <p> This sidenav is not showing any backdrop,
-            where users can click on it, to close the sidenav. </p> <md-button
-            ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
+            where users can click on it, to close the sidenav. </p>
+            <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
+            <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
           </md-content>
         </md-sidenav>
         </section>
