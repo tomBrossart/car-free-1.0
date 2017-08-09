@@ -1,4 +1,5 @@
-myApp.controller('UserController', function($scope, $http, $location, UserService, $mdDialog) {
+myApp.controller('UserController', ['$scope', '$http', '$location','$mdBottomSheet','$mdSidenav', '$mdDialog',
+ function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav, $mdDialog) {
   console.log('UserController created');
   var vm = this;
   //  TRYING TO SWITCH TO $scope
@@ -101,4 +102,4 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     };
   }
 
-});
+}]);

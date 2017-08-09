@@ -26,9 +26,25 @@
     </head>
 
     <body ng-app="myApp" layout="column">
-      <header ng-include="'/views/partials/header.html'"></header>
+      <!-- Container #1 -->
 
-      <main ng-view></main>
+      <md-toolbar>
+        <!-- <h1>Angular Material - Starter App</h1> -->
+        <header ng-include="'/views/partials/header.html'"></header>
+      </md-toolbar>
+
+      <!-- Container #2 -->
+        <div flex layout="row">
+
+    		<!-- Container #3 -->
+            <md-content flex id="content">
+
+              <main ng-view></main>
+
+
+            </md-content>
+
+        </div>
 
     </body>
 </html>
