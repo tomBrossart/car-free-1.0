@@ -84,8 +84,6 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
 
   // method to display additional motivation msg/img
-
-
   $scope.loadDash();
   $scope.refreshDash();
 
@@ -102,5 +100,5 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
       $mdDialog.hide(answer);
     };
   }
-// if I add back [] of injectors add closing ] here 
+// if I add back [] of injectors add closing ] here
 });

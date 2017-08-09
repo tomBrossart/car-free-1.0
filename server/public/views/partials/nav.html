@@ -1,36 +1,26 @@
-<div class="navbar">
-  <div class="container">
-    <ul>
-      <li><a href="#/user">User Home</a></li>
-      <li><a href="#/info">Info Page</a></li>
-    </ul>
-  </div>
-</div>
-
-
-
-
-<md-toolbar>
+<md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2">
   <div class="md-toolbar-tools" layout="row">
-    <div class="welcomeMsg" layout="column" flex=70>
-      <md-truncate>What would you like to brew today?</md-truncate>
-    </div>
-    <div class="userName" layout="column" layout-align="center end" flex=15>
-      <h4>{{uc.userObject.userName}}'s Account</h4>
-    </div>
-    <div class="menu" layout="column" flex=15>
-      <md-menu>
-        <md-button aria-label="Open popup menu" ng-mouseover="$mdMenu.open()" ng-click="uc.userService.openMenu($mdMenu, $event)"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></md-button>
-        <md-menu-content width="4">
-          <md-menu-item> <a href="#/user">M&aring;in Menu</a> </md-menu-item>
-          <!-- <md-menu-item> <a href="#/recipe">Pr&ecirc;p Recipe</a> </md-menu-item> -->
-          <!-- <md-menu-item> <a href="#/brew">Brew Br&uuml;</a> </md-menu-item> -->
-          <!-- <md-menu-item> <a href="#/drink">Drink Br&uuml;</a> </md-menu-item> -->
-          <md-menu-divider></md-menu-divider>
-          <md-menu-item> <a href="#/info">Us&ecirc;r Settings and C&aring;lendar</a> </md-menu-item>
+
+    <md-button aria-label="Open sidenav" ng-click="uc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
+      <md-icon class="material-icons">menu</md-icon>
+    </md-button>
+
+    <div layout="column" style="height: 500px;" ng-cloak>
+      <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left" md-component-id="left"
+        md-disable-backdrop md-whiteframe="4">
+        <md-toolbar class="md-theme-indigo"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
           <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
-        </md-menu-content>
-      </md-menu>
+        </md-toolbar>
+          <md-content layout-margin> <p> This sidenav is not showing any backdrop,
+            where users can click on it, to close the sidenav. </p> <md-button
+            ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
+          </md-content>
+        </md-sidenav>
+        </section>
+      </div>
+    <div class="welcomeMsg" layout="column" flex=70>
+      <md-truncate>carFree</md-truncate>
     </div>
   </div>
 </md-toolbar>
