@@ -22,6 +22,7 @@
         <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
         <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
         <script type="text/javascript" src="scripts/controllers/buildprofile.controller.js"></script>
+        <script type="text/javascript" src="scripts/controllers/nav.controller.js"></script>
         <script type="text/javascript" src="scripts/services/user.service.js"></script>
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,10 +34,10 @@
     <body ng-app="myApp" layout="column">
       <!-- Container #1 -->
 
-      <md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2" ng-controller="UserController as uc">
+      <md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2" ng-controller="NavController as nc">
         <div class="md-toolbar-tools" layout="row">
 
-          <md-button aria-label="Open sidenav" ng-click="uc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
+          <md-button aria-label="Open sidenav" ng-click="nc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
             <md-icon class="material-icons">menu</md-icon>
           </md-button>
 
@@ -44,12 +45,12 @@
             <section layout="row" flex>
               <md-sidenav class="md-sidenav-left md-whiteframe-z6" md-component-id="left"
               md-disable-backdrop md-whiteframe="4">
-              <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
+              <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{nc.userObject.userName}}'s Account</h1>
               </md-toolbar>
-                <md-content layout-margin> <p> This sidenav is not showing any backdrop,
+                <md-content layout-margin layout-align="center"> <p> This sidenav is not showing any backdrop,
                   where users can click on it, to close the sidenav. </p>
-                  <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
-                  <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+                  <md-button ng-click="nc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
+                  <md-button class="btn btn-default" ng-click="nc.userService.logout(); nc.userService.toggleLeft()">Log Out</md-button>
                 </md-content>
               </md-sidenav>
               </section>
@@ -63,7 +64,7 @@
         <div flex layout="row">
 
     		<!-- Container #3 -->
-            <md-content flex id="content">
+            <md-content flex layout-align="center" id="content">
 
               <main ng-view></main>
 

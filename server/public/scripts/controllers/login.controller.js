@@ -16,8 +16,14 @@ myApp.controller('LoginController', function($http, $location, $mdToast, UserSer
         $http.post('/', vm.user).then(function(response) {
           if(response.data.username) {
             console.log('LoginController -- login -- success: ', response.data);
+            if(response.data.newUser) {
+              console.log("New user needs to complete registration");
+              $location.path('/profile');
+            } else {
             // location works with SPA (ng-route)
+            console.log("Existing user, show them dashboard");
             $location.path('/user'); // http://localhost:5000/#/user
+            }
           } else {
             console.log('LoginController -- login -- failure: ', response);
             vm.message = "Wrong!!";
@@ -47,7 +53,7 @@ myApp.controller('LoginController', function($http, $location, $mdToast, UserSer
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
           console.log('LoginController -- registerUser -- success');
-          $location.path('/profile');
+          $location.path('/home');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
           vm.message = "Please try again.";

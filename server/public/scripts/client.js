@@ -22,6 +22,15 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    // .when('/profile/two', {
+    //   templateUrl: '/views/partials/bp2.html',
+    //   controller: 'BuildController as bc',
+    //   resolve: {
+    //     getuser : function(UserService){
+    //       return UserService.getuser();
+    //     }
+    //   }
+    // })
     .when('/profile', {
       templateUrl: '/views/templates/buildprofile.html',
       controller: 'BuildController as bc',
