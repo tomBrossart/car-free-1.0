@@ -19,10 +19,11 @@ myApp.controller('LoginController', function($http, $location, $mdToast, UserSer
             if(response.data.newUser) {
               console.log("New user needs to complete registration");
               $location.path('/profile');
-            }
+            } else {
             // location works with SPA (ng-route)
             console.log("Existing user, show them dashboard");
             $location.path('/user'); // http://localhost:5000/#/user
+            }
           } else {
             console.log('LoginController -- login -- failure: ', response);
             vm.message = "Wrong!!";

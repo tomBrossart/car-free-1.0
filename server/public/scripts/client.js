@@ -31,15 +31,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     //     }
     //   }
     // })
-    // .when('/profile', {
-    //   templateUrl: '/views/templates/buildprofile.html',
-    //   controller: 'BuildController as bc',
-    //   resolve: {
-    //     getuser : function(UserService){
-    //       return UserService.getuser();
-    //     }
-    //   }
-    // })
+    .when('/profile', {
+      templateUrl: '/views/templates/buildprofile.html',
+      controller: 'BuildController as bc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',

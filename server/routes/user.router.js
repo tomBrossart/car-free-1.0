@@ -30,9 +30,10 @@ router.get('/', function(req, res) {
           var userInfo = {
             username : req.user.username,
             userID : req.user.id,
-            newUser : false
+            newUser : true
           };
-            if(result === false) {
+          // had to more specifically select completed_registration from the result object
+            if(result.completed_registration === false) {
               userInfo.newUser = true;
             }
             res.send(userInfo);
