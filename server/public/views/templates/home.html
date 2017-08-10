@@ -1,21 +1,28 @@
-<div class="container">
+<div layout="row">
+  <div layout="column" layout-align="center center" flex=60 layout-padding>
+    <md-content layout-padding>
   <h1 class="lead">Login</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
 <!-- NEW FORM -->
+  <form ng-submit="lc.login()">
+    <div class="">
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Username</label>
+      <input md-maxlength="50" ng-model="lc.user.username">
+    </md-input-container>
 
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Password</label>
+      <input ng-model="lc.user.password">
+    </md-input-container>
 
-
-
-
-
-
-
-
-
-
+    <md-button type="submit">Submit</md-button>
+    <md-button <a href="#register">>Register</a> </md-button>
+  </div>
+  </form>
 
 <!-- OLD FORM -->
-    <form ng-submit="lc.login()">
+    <!-- <form ng-submit="lc.login()">
       <div>
           <label for="username">Username:</label>
           <input type="text" ng-model="lc.user.username" />
@@ -28,5 +35,7 @@
           <input class="btn btn-default" type="submit" name="submit" value="Log In" />
           <a href="#register">Register</a>
       </div>
-    </form>
+    </form> -->
+    </md-content>
+</div>
 </div>

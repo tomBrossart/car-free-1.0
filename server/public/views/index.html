@@ -46,7 +46,7 @@
               md-disable-backdrop md-whiteframe="4">
               <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
               </md-toolbar>
-                <md-content layout-margin> <p> This sidenav is not showing any backdrop,
+                <md-content layout-margin layout-align="center"> <p> This sidenav is not showing any backdrop,
                   where users can click on it, to close the sidenav. </p>
                   <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
                   <md-button class="btn btn-default" ng-click="uc.userService.logout(); uc.userService.toggleLeft()">Log Out</md-button>
@@ -63,7 +63,7 @@
         <div flex layout="row">
 
     		<!-- Container #3 -->
-            <md-content flex id="content">
+            <md-content flex layout-align="center" id="content">
 
               <main ng-view></main>
 
