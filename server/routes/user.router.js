@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
       } else {
       var queryText = "SELECT completed_registration FROM users WHERE id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        done();
         client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);

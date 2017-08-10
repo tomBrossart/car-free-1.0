@@ -10,6 +10,11 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
     // });
   };
 
+  $scope.currentUsage = function() {
+    console.log("current usage");
+    $location.path('/profile/three');
+  };
+
   this.tiles = buildGridModel({
     icon : "",
     title: "",
