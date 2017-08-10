@@ -10,7 +10,7 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
     // });
   };
 
-  $scope.currentUsage = function() {
+  $scope.submitCurrent = function() {
     console.log("current usage");
     $location.path('/profile/three');
   };
@@ -76,8 +76,8 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
     }
     return results;
   }
+
+  $scope.needs = ["Work", "Family", "Social", "Adventure", "Shopping"];
+  $scope.trips = [1 , 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 });
-//  .config( function( $mdIconProvider ){
-//    $mdIconProvider.iconSet("avatar", 'icons/avatar-icons.svg', 128);
-//  });
-// });

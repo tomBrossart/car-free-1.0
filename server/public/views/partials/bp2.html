@@ -1,22 +1,35 @@
 <div layout="column" layout-align="center center">
   <md-toolbar md-scroll-shrink md-hue-2>
-    <div class="md-toolbar-tools">Build your profile 2</div>
+    <div class="md-toolbar-tools">Current Usage</div>
   </md-toolbar>
 </div>
 
-<form ng-submit="currentUsage()">
-  <div class="">
-  <md-input-container class="md-block" flex-gt-sm>
-    <label>Current Usage</label>
-    <input md-maxlength="50" ng-model="lc.user.username">
-  </md-input-container>
+<form ng-submit="submitCurrent()">
 
-  <md-input-container class="md-block" flex-gt-sm>
-    <label>Core Need</label>
-    <input ng-model="lc.user.password">
-  </md-input-container>
+  <div layout="column">
+    <h1 class="md-title">Enter your current car usage:</h1>
+    <div>
+      <md-input-container style="margin-right: 10px;">
+        <label>Core need for your car</label>
+        <md-select ng-model="coreNeed">
+          <md-option ng-repeat="need in needs" value="{{need}}">{{need}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Trips per week</label>
+        <md-select ng-model="currentUsage">
+          <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}}</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <p ng-if="selectedToppings">You drive {{size.toLowerCase()}} per week, and you need your car
+    for {{printSelectedToppings()}}.</p>
 
-  <md-button type="submit">Next</md-button>
-  <md-button <a href="#register">>Register</a> </md-button>
+    <md-button type="submit">Next</md-button>
+
 </div>
+
+
+
+
 </form>
