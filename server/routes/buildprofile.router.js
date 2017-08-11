@@ -9,7 +9,7 @@ router.post('/one', function(req, res, next) {
   var buildUser = {
     user: req.user.id,
     motivation: req.body.motivation,
-    start_date: "03/03/2003"
+    start_date: req.body.start_date
   };
   console.log('first page bp:', buildUser);
 
@@ -74,7 +74,8 @@ router.put('/three/:id', function(req, res, next) {
   var buildUser = {
     user: req.user.id,
     goal_date: req.body.goal_date,
-    goal_usage: req.body.goal_usage
+    goal_usage: req.body.goal_usage,
+    completed_registration: true
   };
   console.log('third page bp:', buildUser);
 
@@ -83,8 +84,8 @@ router.put('/three/:id', function(req, res, next) {
       console.log("Error connecting: ", err);
       next(err);
     }
-    client.query('UPDATE "profile" SET "goal_usage" = $1, "goal_date" = $2  WHERE user_id = $3;',
-      [buildUser.goal_usage, buildUser.goal_date, buildUser.user],
+    client.query('UPDATE "profile" SET "goal_usage" = $1, "goal_date" = $2, "completed_registration" = $3 WHERE user_id = $4;',
+      [buildUser.goal_usage, buildUser.goal_date, buildUser.completed_registration, buildUser.user],
         function (err, result) {
           done();
           if(err) {

@@ -12,7 +12,7 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
   $scope.buildProf = {
     // goal_usage: goalUsage,
     // goal_date: goalDate,
-    start_date: 'today',
+    start_date: new Date(),
     completed_registration: '',
   };
 
