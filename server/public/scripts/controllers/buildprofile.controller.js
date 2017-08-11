@@ -1,13 +1,45 @@
 myApp.controller('BuildController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('BuildController created');
 
+  $scope.currentUsage = '';
+  $scope.coreNeed = '';
+
+
+// HOW TO PACKAGE DATA AND SEND TO DB...
+  $scope.buildProf = {
+    current_usage: currentUsage,
+    // goal_usage: goalUsage,
+    // goal_date: goalDate,
+    start_date: 'today',
+    completed_registration: '',
+    current_need: coreNeed,
+  };
+
+
 // post users selection to db and progress user to next buildProfile page
   $scope.selectMotivation = function(tile) {
     console.log("user selected", tile);
+    $scope.buildProf.motivation = tile;
     // $http.post('/profile/one').then(function(response) {
     //   console.log("Res from selectMotivation: ", response);
       $location.path('/profile/two');
     // });
+  };
+
+  $scope.submitCurrent = function() {
+    console.log("current usage for:", $scope.user);
+    $http.put('/profile/two/' + $scope.user, $scope.buildProf).then(function(response) {
+      console.log('BuildController -- bp two -- success');
+      $location.path('/profile/three');
+    }).catch(function(response) {
+      console.log('BuildController --  bp two -- error');
+      $scope.message = "Please try again.";
+    });
+  };
+
+  $scope.submitGoal = function() {
+    console.log("goal usage");
+    $location.path('/user');
   };
 
   this.tiles = buildGridModel({
@@ -71,8 +103,8 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
     }
     return results;
   }
+
+  $scope.needs = ["Work", "Family", "Social", "Adventure", "Shopping"];
+  $scope.trips = [1 , 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 });
-//  .config( function( $mdIconProvider ){
-//    $mdIconProvider.iconSet("avatar", 'icons/avatar-icons.svg', 128);
-//  });
-// });

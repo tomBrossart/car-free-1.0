@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
       } else {
       var queryText = "SELECT completed_registration FROM users WHERE id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        done();
         client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
@@ -71,6 +72,7 @@ router.put('/drove', function(req, res) {
       // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
     var queryText = "UPDATE usage SET total_trips = total_trips + 1, trips_this_week = trips_this_week + 1 WHERE user_id = $1;";
     client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+      done();
       client.end();
       if(errorMakingQuery) {
         console.log('Attempted to query with', queryText);
@@ -105,6 +107,7 @@ router.get('/dash', function(req, res) {
       } else {
       var queryText = "SELECT * FROM usage WHERE user_id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        done();
         client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
@@ -145,6 +148,7 @@ router.get('/load', function(req, res) {
       } else {
       var queryText = 'SELECT "msg", "img" FROM motivation JOIN users ON "users"."motivation" = "motivation"."selection" WHERE "users"."id" = $1;';
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+        done();
         client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);

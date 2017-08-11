@@ -1,5 +1,35 @@
 <div layout="column" layout-align="center center">
   <md-toolbar md-scroll-shrink md-hue-2>
-    <div class="md-toolbar-tools">Build your profile 2</div>
+    <div class="md-toolbar-tools">Current Usage</div>
   </md-toolbar>
 </div>
+
+<form ng-submit="submitCurrent()">
+
+  <div layout="column">
+    <h1 class="md-title">Enter your current car usage:</h1>
+    <div layout="column">
+      <md-input-container flex="none" style="margin-right: 10px;">
+        <label>Core need for your car</label>
+        <md-select ng-model="coreNeed">
+          <md-option ng-repeat="need in needs" value="{{need}}">{{need}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container flex="none">
+        <label>Trips per week</label>
+        <md-select ng-model="currentUsage">
+          <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}}</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <p ng-if="coreNeed">You currently drive -{{currentUsage.toLowerCase()}}- times per week, and you need your car
+    for {{coreNeed}}.</p>
+
+    <md-button type="submit">Next</md-button>
+
+</div>
+
+
+
+
+</form>
