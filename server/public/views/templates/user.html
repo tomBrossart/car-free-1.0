@@ -2,7 +2,7 @@
     <h4>You've driven <span> {{ thisWeeksTrips }} </span> times this week</h4>
     <h4>And your goal is to only drive <span> {{ thisWeeksGoal }} </span> times this week</h4>
     <div class="row">
-      <img ng-src=" {{ motivationImg }} " alt="Motivational Img">
+      <img ng-src=" {{ motivationImg }} "  class="md-card-image" alt="Motivational Img">
       <h6 class="md-subhead"> {{ motivationMsg }} </h6>
     </div>
     <md-button class="md-primary md-raised" ng-click="drove(ev)"name="button">I drove</md-button>
@@ -11,3 +11,27 @@
     </md-button>
     <md-button class="md-secondary md-raised" ng-click="uc.userService.logout()">Log Out</md-button>
 </div>
+
+<md-card>
+  <md-card-header>
+    <md-card-avatar>
+      <img src="img/logo.svg"/>
+    </md-card-avatar>
+    <md-card-header-text>
+      <span class="md-title">AngularJS</span>
+      <span class="md-subhead">Material</span>
+    </md-card-header-text>
+  </md-card-header>
+  <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Card header</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>
+      The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+    </p>
+  </md-card-content>
+</md-card>
