@@ -1,14 +1,18 @@
 myApp.controller('BuildController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('BuildController created');
 
+  $scope.currentUsage = '';
+  $scope.coreNeed = '';
 
+
+// HOW TO PACKAGE DATA AND SEND TO DB...
   $scope.buildProf = {
-    current_usage: $scope.currentUsage,
-    goal_usage: $scope.goalUsage,
-    goal_date: $scope.ctrl.myDate,
+    current_usage: currentUsage,
+    // goal_usage: goalUsage,
+    // goal_date: goalDate,
     start_date: 'today',
     completed_registration: '',
-    current_need: $scope.coreNeed,
+    current_need: coreNeed,
   };
 
 
@@ -23,13 +27,13 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
   };
 
   $scope.submitCurrent = function() {
-    console.log("current usage");
-    $http.post('/profile/two', $scope.buildProf).then(function(response) {
+    console.log("current usage for:", $scope.user);
+    $http.put('/profile/two/' + $scope.user, $scope.buildProf).then(function(response) {
       console.log('BuildController -- bp two -- success');
       $location.path('/profile/three');
     }).catch(function(response) {
       console.log('BuildController --  bp two -- error');
-      vm.message = "Please try again.";
+      $scope.message = "Please try again.";
     });
   };
 

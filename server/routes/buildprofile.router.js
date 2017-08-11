@@ -4,20 +4,23 @@ var pool = require('../modules/pool.js');
 
 
 // Handles POST request with buildProf data from second page
-router.post('/two', function(req, res, next) {
+router.put('/two/:id', function(req, res, next) {
+  if(req.isAuthenticated()) {
+    console.log("req.body is:", req.body);
   var buildUser = {
-    username: req.body.username,
-    password: encryptLib.encryptPassword(req.body.password)
+    user: req.user,
+    core_need: req.body.coreNeed,
+    current_usage: req.body.currentUsage
   };
-  console.log('new user:', saveUser);
+  console.log('second page bp:', buildUser);
 
   pool.connect(function(err, client, done) {
     if(err) {
       console.log("Error connecting: ", err);
       next(err);
     }
-    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
-      [saveUser.username, saveUser.password],
+    client.query('UPDATE "profile" SET "current_usage" = $1, "core_need" = $2  WHERE user_id = $3;',
+      [buildUser.current_usage, buildUser.coreNeed, buildUser.user],
         function (err, result) {
           done();
           client.end();
@@ -25,11 +28,11 @@ router.post('/two', function(req, res, next) {
             console.log("Error inserting data: ", err);
             next(err);
           } else {
-            res.redirect('/');
+            res.sendStats(203);
           }
         });
-  });
-
+      });
+  }
 });
 
 
