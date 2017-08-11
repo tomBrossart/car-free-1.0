@@ -4,19 +4,30 @@
   </md-toolbar>
 </div>
 
-<form ng-submit="goalUsage()">
-  <div class="">
-  <md-input-container class="md-block" flex-gt-sm>
-    <label>Current Usage</label>
-    <input md-maxlength="50" ng-model="lc.user.username">
-  </md-input-container>
+<form ng-submit="submitGoal()">
+    <div layout="column">
+      <h1 class="md-title">Now enter your goal car usage:</h1>
+      <div layout="column">
+        <md-input-container flex="none">
+          <label>Trips per week</label>
+          <md-select ng-model="goalUsage">
+            <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}}</md-option>
+          </md-select>
+        </md-input-container>
+        <div layout-gt-xs="row">
+      <div flex-gt-xs>
+        <h4>By what date do you want to achieve this goal?</h4>
+        <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+      </div>
+      </div>
+      <p ng-if="coreNeed">You currently drive {{currentUsage.toLowerCase()}} times per week, and you need your car
+      for {{coreNeed}}.</p>
 
-  <md-input-container class="md-block" flex-gt-sm>
-    <label>Core Need</label>
-    <input ng-model="lc.user.password">
-  </md-input-container>
+      <md-button type="submit">Next</md-button>
 
-  <md-button type="submit">Next</md-button>
-  <md-button <a href="#register">>Register</a> </md-button>
-</div>
-</form>
+  </div>
+
+
+
+
+  </form>

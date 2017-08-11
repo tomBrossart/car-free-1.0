@@ -1,9 +1,21 @@
 myApp.controller('BuildController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('BuildController created');
 
+
+  $scope.buildProf = {
+    current_usage: $scope.currentUsage,
+    goal_usage: $scope.goalUsage,
+    goal_date: $scope.ctrl.myDate,
+    start_date: 'today',
+    completed_registration: '',
+    current_need: $scope.coreNeed,
+  };
+
+
 // post users selection to db and progress user to next buildProfile page
   $scope.selectMotivation = function(tile) {
     console.log("user selected", tile);
+    $scope.buildProf.motivation = tile;
     // $http.post('/profile/one').then(function(response) {
     //   console.log("Res from selectMotivation: ", response);
       $location.path('/profile/two');
@@ -12,7 +24,18 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
 
   $scope.submitCurrent = function() {
     console.log("current usage");
-    $location.path('/profile/three');
+    $http.post('/profile/two', $scope.buildProf).then(function(response) {
+      console.log('BuildController -- bp two -- success');
+      $location.path('/profile/three');
+    }).catch(function(response) {
+      console.log('BuildController --  bp two -- error');
+      vm.message = "Please try again.";
+    });
+  };
+
+  $scope.submitGoal = function() {
+    console.log("goal usage");
+    $location.path('/user');
   };
 
   this.tiles = buildGridModel({

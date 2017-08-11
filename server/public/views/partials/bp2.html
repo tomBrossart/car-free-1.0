@@ -8,22 +8,22 @@
 
   <div layout="column">
     <h1 class="md-title">Enter your current car usage:</h1>
-    <div>
-      <md-input-container style="margin-right: 10px;">
+    <div layout="column">
+      <md-input-container flex="none" style="margin-right: 10px;">
         <label>Core need for your car</label>
         <md-select ng-model="coreNeed">
           <md-option ng-repeat="need in needs" value="{{need}}">{{need}}</md-option>
         </md-select>
       </md-input-container>
-      <md-input-container>
+      <md-input-container flex="none">
         <label>Trips per week</label>
         <md-select ng-model="currentUsage">
           <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}}</md-option>
         </md-select>
       </md-input-container>
     </div>
-    <p ng-if="selectedToppings">You drive {{size.toLowerCase()}} per week, and you need your car
-    for {{printSelectedToppings()}}.</p>
+    <p ng-if="coreNeed">You currently drive -{{currentUsage.toLowerCase()}}- times per week, and you need your car
+    for {{coreNeed}}.</p>
 
     <md-button type="submit">Next</md-button>
 
