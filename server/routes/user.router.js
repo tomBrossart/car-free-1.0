@@ -20,7 +20,6 @@ router.get('/', function(req, res) {
       var queryText = "SELECT completed_registration FROM users WHERE id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
         done();
-        client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
           console.log('Error making query', errorMakingQuery);
@@ -70,10 +69,9 @@ router.put('/drove', function(req, res) {
       next(err); // verfiy what this line is doing
     } else {
       // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
-    var queryText = "UPDATE usage SET total_trips = total_trips + 1, trips_this_week = trips_this_week + 1 WHERE user_id = $1;";
+    var queryText = "UPDATE profile SET total_trips = total_trips + 1, trips_this_week = trips_this_week + 1 WHERE user_id = $1;";
     client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
       done();
-      client.end();
       if(errorMakingQuery) {
         console.log('Attempted to query with', queryText);
         console.log('Error making query', errorMakingQuery);
@@ -103,12 +101,10 @@ router.get('/dash', function(req, res) {
       if(err) {
         console.log("Error connecting to db: ", err);
         res.sendStatus(500);
-        next(err); // verfiy what this line is doing
       } else {
-      var queryText = "SELECT * FROM usage WHERE user_id = $1;";
+      var queryText = "SELECT * FROM profile WHERE user_id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
         done();
-        client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
           console.log('Error making query', errorMakingQuery);
@@ -118,7 +114,7 @@ router.get('/dash', function(req, res) {
           // Send back the results
           res.send(result.rows);
         }
-      });
+      }); // end query
       }
     });
   } else {
@@ -146,10 +142,9 @@ router.get('/load', function(req, res) {
         res.sendStatus(500);
         next(err); // verfiy what this line is doing
       } else {
-      var queryText = 'SELECT "msg", "img" FROM motivation JOIN users ON "users"."motivation" = "motivation"."selection" WHERE "users"."id" = $1;';
+      var queryText = 'SELECT "msg", "img" FROM motivation JOIN profile ON "profile"."motivation" = "motivation"."selection" WHERE "profile"."user_id" = $1;';
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
         done();
-        client.end();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
           console.log('Error making query', errorMakingQuery);

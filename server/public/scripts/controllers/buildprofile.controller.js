@@ -1,18 +1,19 @@
 myApp.controller('BuildController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog) {
   console.log('BuildController created');
 
-  $scope.currentUsage = '';
+  var vm = this;
   $scope.coreNeed = '';
+  $scope.currentUsage = 0;
+  // $scope.currentUsage = '';
+  // $scope.coreNeed = '';
 
 
 // HOW TO PACKAGE DATA AND SEND TO DB...
   $scope.buildProf = {
-    current_usage: currentUsage,
     // goal_usage: goalUsage,
     // goal_date: goalDate,
     start_date: 'today',
     completed_registration: '',
-    current_need: coreNeed,
   };
 
 
@@ -20,16 +21,20 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
   $scope.selectMotivation = function(tile) {
     console.log("user selected", tile);
     $scope.buildProf.motivation = tile;
-    // $http.post('/profile/one').then(function(response) {
-    //   console.log("Res from selectMotivation: ", response);
+    $http.post('/profile/one', $scope.buildProf).then(function(response) {
+      console.log("Res from selectMotivation: ", response);
       $location.path('/profile/two');
-    // });
+    });
   };
 
+
+// I think I need to assign the property inside the transport object...
   $scope.submitCurrent = function() {
+    $scope.buildProf.core_need = $scope.coreNeed;
+    $scope.buildProf.current_usage = $scope.currentUsage;
     console.log("current usage for:", $scope.user);
     $http.put('/profile/two/' + $scope.user, $scope.buildProf).then(function(response) {
-      console.log('BuildController -- bp two -- success');
+      console.log('BuildController -- bp two -- success', response);
       $location.path('/profile/three');
     }).catch(function(response) {
       console.log('BuildController --  bp two -- error');
@@ -38,8 +43,16 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
   };
 
   $scope.submitGoal = function() {
+    $scope.buildProf.goal_date = $scope.goalDate;
+    $scope.buildProf.goal_usage = $scope.goalUsage;
     console.log("goal usage");
+    $http.put('/profile/three/' + $scope.user, $scope.buildProf).then(function(response) {
+      console.log('BuildController -- bp three -- success', response);
     $location.path('/user');
+  }).catch(function(response) {
+    console.log('BuildController --  bp three -- error');
+    $scope.message = "Please try again.";
+  });
   };
 
   this.tiles = buildGridModel({

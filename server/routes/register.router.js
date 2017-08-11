@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
     client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
       [saveUser.username, saveUser.password],
         function (err, result) {
-          done();
+          // done(); do I need this?
           client.end();
           if(err) {
             console.log("Error inserting data: ", err);
