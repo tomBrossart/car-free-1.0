@@ -5,7 +5,7 @@ var pool = require('../modules/pool.js');
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
-  console.log('get /user route');
+  console.log('get /user route', req.user.id);
   // query db to see if they've completed buildProfile, if no have client redirect to buildProfile
 
   // check if logged in
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
         res.sendStatus(500);
         next(err); // verfiy what this line is doing
       } else {
-      var queryText = "SELECT completed_registration FROM users WHERE id = $1;";
+      var queryText = "SELECT completed_registration FROM profile WHERE user_id = $1;";
       client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
         done();
         if(errorMakingQuery) {
@@ -25,15 +25,19 @@ router.get('/', function(req, res) {
           console.log('Error making query', errorMakingQuery);
           res.sendStatus(500);
         } else {
-          console.log("result from completed_registration query", result);
+          // console.log("result from completed_registration query", result.rows[0].completed_registration);
+          console.log("result from completed_registration query -- just result", result);
           // Send back the results
           var userInfo = {
             username : req.user.username,
             userID : req.user.id,
           };
           // had to more specifically select completed_registration from the result object
-            if(!result.completed_registration) {
+            if(result.rowCount == 0 || !result.rows[0].completed_registration) {
               userInfo.newUser = true;
+            }
+            else {
+              userInfo.newUser = false;
             }
             res.send(userInfo);
           }
@@ -60,8 +64,7 @@ router.get('/logout', function(req, res) {
 
 // update db with "I drove" button increment
 router.put('/drove', function(req, res) {
-  console.log('put /user/drove route');
-
+  console.log('put /user/drove route', req);
   pool.connect(function(err, client, done) {
     if(err) {
       console.log("Error connecting to db: ", err);
@@ -77,7 +80,7 @@ router.put('/drove', function(req, res) {
         console.log('Error making query', errorMakingQuery);
         res.sendStatus(500);
       } else {
-        console.log(result);
+        console.log('/drove result:', result);
         // Send back the results
         res.sendStatus(200);
       }

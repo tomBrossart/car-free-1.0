@@ -72,9 +72,9 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
       console.log('Response on refreshDash: ', response);
       // if(response.data.username) {
       // console.log('Inside if in refreshDash: ', response.data[0].total_trips);
-      console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
       $scope.thisWeeksTrips = response.data[0].trips_this_week;
-      $scope.thisWeeksGoal = response.data[0].total_trips;
+      $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
+      console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
       // $scope.motivationImg = response.data[0].motivationImg;
       // $scope.motivationMsg = response.data[0].motivationMsg;
       // }

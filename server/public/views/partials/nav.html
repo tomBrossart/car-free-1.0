@@ -5,22 +5,32 @@
       <md-icon class="material-icons">menu</md-icon>
     </md-button>
 
+<md-card>
     <div layout="column" style="height: 500px;" ng-cloak>
       <section layout="row" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
         md-disable-backdrop md-whiteframe="4">
         <md-toolbar class="md-theme-indigo md-tall md-hue-2"> <h1 class="md-toolbar-tools">{{uc.userObject.userName}}'s Account</h1>
         </md-toolbar>
-          <md-content layout-margin> <p> This sidenav is not showing any backdrop,
-            where users can click on it, to close the sidenav. </p>
-            <md-button ng-click="uc.userService.toggleLeft()" class="md-accent"> Close this Sidenav </md-button>
-            <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
-          </md-content>
         </md-sidenav>
         </section>
       </div>
     <div class="welcomeMsg" layout="column" flex=70>
       <md-truncate>carFree</md-truncate>
     </div>
+
+  <img ng-src=" {{ motivationImg }} "  class="md-card-image" alt="Motivational Img">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{ motivationMsg }}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button ng-click="uc.userService.toggleLeft()" class="md-warn md-raised" Close this Sidenav </md-button>
+      <md-button class="md-primary md-raised" ng-click="uc.userService.logout()">Log Out</md-button>
+    </md-card-actions>
+  </md-card-content>
+    </md-card>
   </div>
 </md-toolbar>
