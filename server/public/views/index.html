@@ -42,12 +42,12 @@
 
 <md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2" ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
-    <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
+    <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
       <md-icon class="material-icons">menu</md-icon>
     </md-button>
     <div flex layout="row" layout-align="end center">
       <h1>carFree</h1>
-      <md-button aria-label="Logo" ng-click="nc.userService.toggleLeft('left')" class="md-icon-button" ng-disabled="false">
+      <md-button aria-label="Logo" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
         <md-icon class="material-icons">accessibility</md-icon>
         <!-- <md-icon class="material-icons">menu</md-icon> -->
       </md-button>
@@ -74,11 +74,15 @@
         </md-card-title> -->
         <md-card-content>
           <md-card-actions layout="column" layout-align="center center">
-            <md-button class="md-secondary md-raised" ng-if="index.html" ng-disabled="true" ng-click="nc.userService.logout()">Dashboard</md-button>
-            <md-button class="md-secondary md-raised" ng-click="nc.userService.logout()">Profile</md-button>
-            <md-button class="md-secondary md-raised" ng-click="nc.userService.logout()">Resources</md-button>
+            <!-- If user is not logged in the disable Dashboard and Profile -->
+            <md-button class="md-secondary md-raised" ng-disabled="false" ><a href="#/user">Dashboard </a></md-button>
+            <md-button class="md-secondary md-raised"> <a href="#/profile">Profile </a></md-button>
+            <md-button class="md-secondary md-raised"> <a href="#/resources">Resources</a> </md-button>
+<!-- figure out how to close sidenav after user clicks logout -->
             <md-button class="md-primary md-raised" ng-click="nc.userService.logout()">Log Out</md-button>
-            <md-button ng-click="nc.userService.toggleLeft()" class="md-warn"> Close this Sidenav </md-button>
+            <md-button layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
+              <md-icon class="material-icons">close</md-icon>
+             </md-button>
           </md-card-actions>
         </md-card-content>
       </md-card>
@@ -91,10 +95,10 @@
 
 
 <!-- Container #2 -->
-<div flex layout="row">
+<div>
 
   <!-- Container #3 -->
-  <md-content flex layout-align="center" id="content">
+  <md-content>
 
     <main ng-view></main>
 
