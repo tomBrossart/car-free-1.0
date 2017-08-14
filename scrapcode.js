@@ -9,3 +9,22 @@
     </div>
     <!-- <md-menu-item> <a href="#/info">Us&ecirc;r Settings and C&aring;lendar</a> </md-menu-item> -->
   </md-content>
+
+-----------------------------------------------
+Login page
+
+            <!-- OLD FORM -->
+            <!-- <form ng-submit="lc.login()">
+            <div>
+            <label for="username">Username:</label>
+            <input type="text" ng-model="lc.user.username" />
+          </div>
+          <div>
+          <label for="password">Password:</label>
+          <input type="password" ng-model="lc.user.password" />
+        </div>
+        <div>
+        <input class="btn btn-default" type="submit" name="submit" value="Log In" />
+        <a href="#register">Register</a>
+      </div>
+    </form> -->

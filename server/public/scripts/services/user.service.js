@@ -4,6 +4,7 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
   var userObject = {};
   var originatorEv;
 
+
   function buildToggler(componentId) {
   return function() {
     $mdSidenav(componentId).toggle();
@@ -31,17 +32,17 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
       });
     },
 
+    toggleLeft : buildToggler('left'),
+    toggleRight : buildToggler('right'),
+
     logout : function() {
       console.log('UserService -- logout');
       $http.get('/user/logout').then(function(response) {
         console.log('UserService -- logout -- logged out');
         $location.path("/home");
+        // buildToggler('left');
       });
     },
-
-    toggleLeft : buildToggler('left'),
-    toggleRight : buildToggler('right')
-
 
   };
 });

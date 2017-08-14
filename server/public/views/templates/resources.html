@@ -1,0 +1,43 @@
+<div layout="column" layout-align="center center">
+<md-card>
+  <md-card-header layout-margin>
+    <!-- <md-card-avatar>
+      <img ng-src=" {{ motivationImg }} "/>
+    </md-card-avatar> -->
+    <md-card-header-text>
+      <span class="md-title"> <span> {{ username }} </span>'s Resources</span>
+      <!-- <span class="md-subhead"> Joined <span> {{ start_date }} </span> </span> -->
+    </md-card-header-text>
+  </md-card-header>
+  <!-- <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{ motivationMsg }}</span>
+    </md-card-title-text>
+  </md-card-title> -->
+  <md-card-content>
+    <md-list>
+      <md-subheader class="md-no-sticky">Logistics Resources</md-subheader>
+        <md-list-item> Links links links </md-list-item>
+        <md-list-item> Links links links </md-list-item>
+      <md-divider></md-divider>
+
+      <md-subheader class="md-no-sticky">Motivation Resources</md-subheader>
+        <md-list-item> Links links links</md-list-item>
+        <md-list-item> asdfasdf </md-list-item>
+      <md-divider></md-divider>
+
+      <md-subheader class="md-no-sticky">Financial Resources</md-subheader>
+        <md-list-item> Links links links </md-list-item>
+        <md-list-item> Links links links </md-list-item>
+        <md-list-item> Links links links </md-list-item>
+      <md-divider></md-divider>
+
+
+    </md-list>
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button class="md-primary md-raised" ng-click="addResource($event)">Add a Resource</md-button>
+      <md-button name="button" ng-click="editResource($event)" class="md-warn md-raised">Edit Resources</md-button>
+    </md-card-actions>
+  </md-card-content>
+</md-card>
+</div>

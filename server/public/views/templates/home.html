@@ -1,42 +1,31 @@
-<div layout="row">
-  <div layout="column" layout-align="center center" flex=60 layout-padding>
-    <md-content layout-padding>
-  <h1 class="lead">Login</h1>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
-<!-- NEW FORM -->
-  <form ng-submit="lc.login()">
-    <div class="">
-    <md-input-container class="md-block" flex-gt-sm>
-      <label>Username</label>
-      <input md-maxlength="50" ng-model="lc.user.username">
-    </md-input-container>
+<div layout="column" layout-align="center center">
+  <div layout="row" layout-align="center">
+    <md-card md-whiteframe="4" md-theme-indigo md-hue-2>
+      <md-card-content layout-padding>
+        <h1>Login</h1>
+        <h4 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h4>
+          <!-- NEW FORM -->
+          <form name="loginForm" ng-submit="lc.login()">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Username</label>
+                <input name="username" md-maxlength="50" ng-model="lc.user.username" required md-no-asterisk>
+                <div ng-messages="loginForm.username.$error">
+                  <div ng-message="required">This is required.</div>
+                  <div ng-message="md-maxlength">Your password must be more than 5 and less than 30 characters long.</div>
+                </div>
+              </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm>
-      <label>Password</label>
-      <input ng-model="lc.user.password">
-    </md-input-container>
-
-    <md-button type="submit">Submit</md-button>
-    <md-button <a href="#register">>Register</a> </md-button>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Password</label>
+                <input name="password" ng-model="lc.user.password" required md-no-asterisk>
+              </md-input-container>
+            <md-card-actions layout="row">
+              <!-- Why won't buttons seperate?  -->
+              <md-button layout-align="start center" class="md-primary md-raised" type="submit">Submit</md-button>
+              <md-button layout-align="end center" class="md-secondary md-raised"> <a href="#register"> Register </a> </md-button>
+            </md-card-actions>
+          </form>
+    </md-card-content>
+  </md-card>
   </div>
-  </form>
-
-<!-- OLD FORM -->
-    <!-- <form ng-submit="lc.login()">
-      <div>
-          <label for="username">Username:</label>
-          <input type="text" ng-model="lc.user.username" />
-      </div>
-      <div>
-          <label for="password">Password:</label>
-          <input type="password" ng-model="lc.user.password" />
-      </div>
-      <div>
-          <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-          <a href="#register">Register</a>
-      </div>
-    </form> -->
-    </md-content>
-</div>
-
 </div>
