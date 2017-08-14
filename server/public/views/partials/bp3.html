@@ -1,32 +1,22 @@
 <div layout="column" layout-align="center center">
   <md-toolbar layout="row" md-scroll-shrink md-hue-2>
-    <div flex="80" class="md-toolbar-tools">Goal Usage</div>
+    <div flex="80" class="md-toolbar-tools">Set your quit date</div>
     <md-icon flex md-hue-3 class="material-icons">looks_3</md-icon>
     <p flex> / </p>
-    <md-icon flex class="material-icons">looks_4</md-icon>
+    <md-icon flex class="material-icons">looks_3</md-icon>
   </md-toolbar>
 </div>
 
 <form ng-submit="submitGoal()">
-    <div layout="column">
-      <h1 class="md-title">Now enter your goal car usage:</h1>
-      <div layout="column">
-        <md-input-container flex="none">
-          <label>Trips per week</label>
-          <md-select ng-model="goalUsage">
-            <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}}</md-option>
-          </md-select>
-        </md-input-container>
-        <div layout-gt-xs="row">
+    <div layout="row">
       <div flex-gt-xs>
         <h4>By what date do you want to achieve this goal?</h4>
         <md-datepicker ng-model="goalDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
       </div>
-      </div>
-      <p ng-if="coreNeed">You currently drive {{currentUsage.toLowerCase()}} times per week, and you need your car
-      for {{coreNeed}}.</p>
+      <p>We'll tell you when you've earned a new badge and how long you've been car free if you let us send you notifications</p>
 
-      <md-button class="md-secondary md-raised" type="submit">Next</md-button>
+      <md-button class="md-button" type="skip">Skip</md-button>
+      <md-button class="md-secondary md-raised" type="submit">Allow</md-button>
 
   </div>
 
