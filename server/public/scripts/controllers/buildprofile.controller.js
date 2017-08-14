@@ -2,16 +2,10 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
   console.log('BuildController created');
 
   var vm = this;
-  $scope.coreNeed = '';
-  $scope.currentUsage = 0;
-  // $scope.currentUsage = '';
-  // $scope.coreNeed = '';
 
 
 // HOW TO PACKAGE DATA AND SEND TO DB...
   $scope.buildProf = {
-    // goal_usage: goalUsage,
-    // goal_date: goalDate,
     start_date: new Date(),
     completed_registration: '',
   };
@@ -29,22 +23,21 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
 
 
 // I think I need to assign the property inside the transport object...
-  $scope.submitCurrent = function() {
-    $scope.buildProf.core_need = $scope.coreNeed;
-    $scope.buildProf.current_usage = $scope.currentUsage;
+  $scope.submitHistory = function() {
+    $scope.buildProf.week_trips = $scope.weekTrips;
+    $scope.buildProf.avg_trip = $scope.avgTrip;
     console.log("current usage for:", $scope.user);
     $http.put('/profile/two/' + $scope.user, $scope.buildProf).then(function(response) {
       console.log('BuildController -- bp two -- success', response);
       $location.path('/profile/three');
     }).catch(function(response) {
-      console.log('BuildController --  bp two -- error');
+      console.log('BuildController --  bp two -- error', response);
       $scope.message = "Please try again.";
     });
   };
 
   $scope.submitGoal = function() {
     $scope.buildProf.goal_date = $scope.goalDate;
-    $scope.buildProf.goal_usage = $scope.goalUsage;
     console.log("goal usage");
     $http.put('/profile/three/' + $scope.user, $scope.buildProf).then(function(response) {
       console.log('BuildController -- bp three -- success', response);

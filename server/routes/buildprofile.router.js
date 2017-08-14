@@ -40,8 +40,8 @@ router.put('/two/:id', function(req, res, next) {
     console.log("req.body is:", req.body);
   var buildUser = {
     user: req.user.id,
-    core_need: req.body.core_need,
-    current_usage: req.body.current_usage
+    week_trips: req.body.week_trips,
+    avg_trip: req.body.avg_trip
   };
   console.log('second page bp:', buildUser);
 
@@ -50,8 +50,8 @@ router.put('/two/:id', function(req, res, next) {
       console.log("Error connecting: ", err);
       next(err);
     }
-    client.query('UPDATE "profile" SET "current_usage" = $1, "core_need" = $2  WHERE user_id = $3;',
-      [buildUser.current_usage, buildUser.core_need, buildUser.user],
+    client.query('UPDATE "profile" SET "week_trips" = $1, "avg_trip" = $2  WHERE user_id = $3;',
+      [buildUser.week_trips, buildUser.avg_trip, buildUser.user],
         function (err, result) {
           done();
           if(err) {
@@ -84,8 +84,8 @@ router.put('/three/:id', function(req, res, next) {
       console.log("Error connecting: ", err);
       next(err);
     }
-    client.query('UPDATE "profile" SET "goal_usage" = $1, "goal_date" = $2, "completed_registration" = $3 WHERE user_id = $4;',
-      [buildUser.goal_usage, buildUser.goal_date, buildUser.completed_registration, buildUser.user],
+    client.query('UPDATE "profile" SET "goal_date" = $1, "completed_registration" = $2 WHERE user_id = $3;',
+      [buildUser.goal_date, buildUser.completed_registration, buildUser.user],
         function (err, result) {
           done();
           if(err) {

@@ -30,11 +30,14 @@
                   <div ng-message="confirm">Passwords do not match</div>
                 </div>
               </md-input-container>
-            <md-card-actions layout="row">
+          <div layout="row" layout-align="center end">
+            <md-card-actions>
               <!-- Why won't buttons seperate?  -->
-              <md-button layout-align="start center" class="md-primary md-raised" type="submit" name="submit">Register</md-button>
-              <md-button layout-align="end center" class="md-secondary md-raised"> <a href="#home">Cancel</a> </md-button>
+              <md-button flex class="md-primary md-raised" type="submit" name="submit">Register</md-button>
+              <md-button flex class="md-secondary md-raised"> <a href="#home">Cancel</a> </md-button>
             </md-card-actions>
+          </div>
+
           </form>
       </md-card-content>
     </md-card>

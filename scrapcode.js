@@ -28,3 +28,11 @@ Login page
         <a href="#register">Register</a>
       </div>
     </form> -->
+
+
+--------------------------------------------------
+Week 2 Pivot
+
+<md-button class="md-primary md-raised" ng-click="drove(ev)">I drove</md-button>
+
+$scope.buildProf.goal_usage = $scope.goalUsage;

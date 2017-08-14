@@ -6,17 +6,19 @@
     <md-icon flex class="material-icons">looks_3</md-icon>
   </md-toolbar>
 
-  <form ng-submit="submitCurrent()">
+  <form ng-submit="submitHistory()">
 
-    <div layout="column">
-        <md-input-container flex="none" style="margin-right: 10px;">
-          <label>How many trips did/do you drive per week (avg of course)?</label>
+    <div layout="column" md-padding>
+      <h4>How many trips did/do you drive per week (avg of course)?</h4>
+        <md-input-container flex="none" style="margin: 10px;">
+          <label>I drove...</label>
           <md-select ng-model="weekTrips">
-            <md-option ng-repeat="trip in trips" value="Tell me!">{{trip}}</md-option>
+            <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}} times/week</md-option>
           </md-select>
         </md-input-container>
-        <md-input-container flex="none">
-          <label>How long was/is your average trip?</label>
+        <h4>How long was/is your average trip?</h4>
+        <md-input-container flex="none" style="margin: 10px;">
+          <label>About...</label>
           <md-select ng-model="avgTrip">
             <md-option ng-repeat="avg in avgs" value="{{avg}}">{{avg}} minutes</md-option>
           </md-select>
@@ -26,8 +28,9 @@
 
       <!-- <p ng-if="vm.coreNeed">You currently drive -{{currentUsage.toLowerCase()}}- times per week, and you need your car
         for {{coreNeed}}.</p> -->
-
-        <md-button class="md-secondary md-raised" type="submit">Nearly There</md-button>
+      <div layout="row" layout-align="center end">
+        <md-button flex class="md-primary md-raised md-hue-2" type="submit">Nearly There</md-button>
+      </div>
 
       </div>
 

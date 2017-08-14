@@ -19,11 +19,13 @@
                 <label>Password</label>
                 <input name="password" ng-model="lc.user.password" required md-no-asterisk>
               </md-input-container>
-            <md-card-actions layout="row">
+          <div layout="row" layout-align="center end">
+            <md-card-actions>
               <!-- Why won't buttons seperate?  -->
-              <md-button layout-align="start center" class="md-primary md-raised" type="submit">Submit</md-button>
-              <md-button layout-align="end center" class="md-secondary md-raised"> <a href="#register"> Register </a> </md-button>
+              <md-button flex class="md-primary md-raised" type="submit">Submit</md-button>
+              <md-button flex class="md-secondary md-raised"> <a href="#register"> Register </a> </md-button>
             </md-card-actions>
+          </div>
           </form>
     </md-card-content>
   </md-card>

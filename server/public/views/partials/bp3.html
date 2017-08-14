@@ -5,22 +5,19 @@
     <p flex> / </p>
     <md-icon flex class="material-icons">looks_3</md-icon>
   </md-toolbar>
-</div>
 
 <form ng-submit="submitGoal()">
-    <div layout="row">
-      <div flex-gt-xs>
-        <h4>By what date do you want to achieve this goal?</h4>
-        <md-datepicker ng-model="goalDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-      </div>
-      <p>We'll tell you when you've earned a new badge and how long you've been car free if you let us send you notifications</p>
+    <div layout="column">
+        <h4 flex>By what date do you want to achieve this goal?</h4>
+        <md-datepicker flex layout-align="center center" ng-model="goalDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    </div>
 
-      <md-button class="md-button" type="skip">Skip</md-button>
-      <md-button class="md-secondary md-raised" type="submit">Allow</md-button>
+      <!-- <p>We'll tell you when you've earned a new badge and how long you've been car free if you let us send you notifications</p> -->
 
-  </div>
-
-
-
-
+      <div layout="row" layout-align="center end">
+        <md-button flex class="md-hue-2 md-raised" type="skip">Skip</md-button>
+        <md-button flex class="md-primary md-raised md-hue-4" type="submit">Allow</md-button>
+    </div>
   </form>
+
+</div>

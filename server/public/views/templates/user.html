@@ -15,9 +15,10 @@
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
-    <md-card-actions layout="row" layout-align="center center">
-      <md-button class="md-primary md-raised" ng-click="drove(ev)">I drove</md-button>
-      <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">I had a craving</md-button>
+    <div layout="row" layout-align="center end">
+    <md-card-actions>
+      <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
     </md-card-actions>
+  </div>
   </md-card-content>
 </md-card>
