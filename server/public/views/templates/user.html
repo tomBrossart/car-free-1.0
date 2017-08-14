@@ -1,24 +1,74 @@
-<md-card>
-  <md-card-header layout-margin>
-    <md-card-avatar>
-      <img ng-src=" {{ motivationImg }} "/>
-    </md-card-avatar>
-    <md-card-header-text>
-      <span class="md-title">You've driven <span> {{ thisWeeksTrips }} </span> times this week</span>
-      <span class="md-subhead">And your goal is to only drive <span> {{ thisWeeksGoal }} </span> times this week</span>
-    </md-card-header-text>
-  </md-card-header>
-  <img ng-src=" {{ motivationImg }} "  class="md-card-image" alt="Motivational Img">
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">{{ motivationMsg }}</span>
-    </md-card-title-text>
-  </md-card-title>
-  <md-card-content>
-    <div layout="row" layout-align="center end">
-    <md-card-actions>
-      <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
-    </md-card-actions>
+<div layout-align="center center">
+<div layout-align="center center">
+      <span class="ng-header">Time car free</span>
+      <img ng-src=" {{ motivationImg }} "  class="md-card-image" alt="Motivational Img">
+    </div>
+
+<md-list>
+    <md-divider></md-divider>
+</md-list>
+  <div style="background:lightBlue" layout-align="center center">
+    <h3>Money saved:</h3>
+    <h3> {{thingsHere}}</h3>
+    <h5>Per year:</h5>
+    <h5> {{ thingsHeretoo }} </h5>
   </div>
-  </md-card-content>
-</md-card>
+  <md-list>
+      <md-divider></md-divider>
+  </md-list>
+  <div style="background:lightBlue" layout-align="center center">
+    <h3>Time not spent alone in traffic: {{FILLTHIS}}</h3>
+    <h3> Cartrips not driven: {{ ... }}</h3>
+    <h5>Cravings resisted: {{ ... }}</h5>
+  </div>
+
+
+
+
+
+
+
+<div layout="row" flex="100" layout-align="center">
+   <md-card class="md-whiteframe-1dp" flex="100" style="background:white" layout="column">
+     <div style="background:darkgreen" flex="80" layout="row" layout-align="end">
+       <div flex="100" layout-margin layout="column">
+         <div flex style="background-img:{{ motivationImg }}">
+           <h3>Save up for something</h3>
+           <p>Filler text is the greatest, especially here and here and here. </p>
+           <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
+         </div>
+         <!-- <div style="background:yellow" flex>
+         </div>
+         <div style="background:blue" flex>
+         </div> -->
+       </div>
+     </div>
+     <div layout="row" layout-align="center center" flex>
+       <label style="font-size:30px">Products</label>
+     </div>
+   </md-card>
+ </div>
+
+
+ <md-card>
+   <div class="">
+
+        <img ng-src="{{ motivationImg }}" class="md-card-image" alt="Washed Out">
+        <md-card-content>
+          <h3>fuck this</h3>
+      <div layout="row" layout-align="center end">
+        <md-card-actions layout="row" layout-align="center center">
+          <md-button class="md-icon-button" aria-label="Favorite">
+            <md-icon class="material-icons">exit</md-icon>
+          </md-button>
+          <div layout="row" layout-align="center end">
+            <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
+        </div>
+        </md-card-actions>
+      </div>
+      </md-card-content>
+      </div>
+
+  </md-card>
+
+</div>

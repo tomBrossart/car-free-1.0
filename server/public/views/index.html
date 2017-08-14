@@ -34,13 +34,13 @@
 
 </head>
 
-<body ng-app="myApp" layout="column">
+<body ng-app="myApp" layout="column" style="height:700px">
   <!-- Container #1 -->
 
 
 
 <!-- add back in scroll shrink if figured out issue md-scroll-shrink -->
-<md-toolbar  ng-if="true" class="md-hue-2" ng-controller="NavController as nc">
+<md-toolbar  class="md-hue-4" style="height:700px" ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
     <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
       <md-icon class="material-icons">menu</md-icon>
@@ -95,7 +95,7 @@
 
 
 <!-- Container #2 -->
-<div>
+<div flex layout="column">
 
   <!-- Container #3 -->
   <md-content>
@@ -106,8 +106,8 @@
   </md-content>
 
 </div>
-</md-toolbar>
 
+</md-toolbar>
 
 </body>
 </html>
