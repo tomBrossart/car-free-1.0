@@ -58,6 +58,15 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/resources', {
+      templateUrl: '/views/templates/resources.html',
+      controller: 'InfoController',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });

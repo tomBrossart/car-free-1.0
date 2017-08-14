@@ -39,8 +39,8 @@
 
 
 
-
-<md-toolbar md-scroll-shrink ng-if="true" class="md-hue-2" ng-controller="NavController as nc">
+<!-- add back in scroll shrink if figured out issue md-scroll-shrink -->
+<md-toolbar  ng-if="true" class="md-hue-2" ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
     <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
       <md-icon class="material-icons">menu</md-icon>
@@ -75,11 +75,11 @@
         <md-card-content>
           <md-card-actions layout="column" layout-align="center center">
             <!-- If user is not logged in the disable Dashboard and Profile -->
-            <md-button class="md-secondary md-raised" ng-disabled="false" ><a href="#/user">Dashboard </a></md-button>
-            <md-button class="md-secondary md-raised"> <a href="#/profile">Profile </a></md-button>
-            <md-button class="md-secondary md-raised"> <a href="#/resources">Resources</a> </md-button>
+            <md-button class="md-secondary md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()"><a href="#/user">Dashboard </a></md-button>
+            <md-button class="md-secondary md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/info">Profile </a></md-button>
+            <md-button class="md-secondary md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/resources">Resources</a> </md-button>
 <!-- figure out how to close sidenav after user clicks logout -->
-            <md-button class="md-primary md-raised" ng-click="nc.userService.logout()">Log Out</md-button>
+            <md-button class="md-primary md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
             <md-button layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
               <md-icon class="material-icons">close</md-icon>
              </md-button>
