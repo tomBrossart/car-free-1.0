@@ -12,16 +12,16 @@
   </md-list>
   <div style="background:slateGrey; height:200px" layout-align="center center" layout-margin>
     <h3>Money saved:</h3>
-    <h3> {{moneySaved}} </h3>
+    <h3> {{moneySaved | currency}} </h3>
     <h5>Per year:</h5>
-    <h5> {{ moneyPerYear }} </h5>
+    <h5> {{ moneyPerYear | currency }} </h5>
   </div>
   <md-list>
     <md-divider></md-divider>
   </md-list>
   <div style="height:300px" style="background:lightBlue" layout-align="center center">
-    <h3>Your carFree adventure, by the numbers:</h3>
-    <h5>Time not spent alone in traffic: {{ timeNotAlone }}</h5>
+    <h3>Your carFree adventure so far, by the numbers:</h3>
+    <h5>Time not spent alone in traffic: {{ timeNotAlone }} minutes</h5>
     <h5> Cartrips not driven: {{ notDriven }}</h5>
     <h5>Cravings resisted: {{ cravingsResisted }}</h5>
   </div>

@@ -53,6 +53,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   };
 
   // load up user motivation img and msg
+  // TO DO update this now that project pivoted
   $scope.loadDash = function() {
     console.log("Loading Dashboard");
     $http.get('/user/load').then(function(response) {
@@ -68,7 +69,11 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     $http.get('/user/dash').then(function(response) {
       console.log('Response on refreshDash: ', response);
       $scope.quitDate =  response.data[0].goal_date;
-      $scope.moneySaved =  response.data[0].goal_date;
+      $scope.moneySaved =  (response.data[0].avg_trip * 5);
+      $scope.moneyPerYear =  (response.data[0].avg_trip * 5);
+      $scope.timeNotAlone =  (response.data[0].avg_trip * 5);
+      $scope.notDriven =  (response.data[0].week_trips * 5);
+      $scope.cravingsResisted =  (response.data[0].total_cravings);
       // ((new Date().getTime()) - (new Date(quitDate).getTime()));
       console.log("quitDate", $scope.quitDate);
       // $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
