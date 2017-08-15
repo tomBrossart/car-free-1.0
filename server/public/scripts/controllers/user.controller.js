@@ -7,6 +7,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
   // MAYBE ADD THIS BACK LATER ... ['$scope', '$http', '$location','$mdBottomSheet','$mdSidenav', '$mdDialog',
 
+
   // when user clicks "I drove" button
   $scope.drove = function(ev) {
     console.log("Increment current usage by 1 in db");
@@ -56,12 +57,8 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     console.log("Loading Dashboard");
     $http.get('/user/load').then(function(response) {
       console.log('Response on loadDash: ', response);
-      // if(response.data.username) {
-      // console.log('Inside if in refreshDash: ', response.data[0].total_trips);
-      console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
       $scope.motivationImg = response.data[0].img;
       $scope.motivationMsg = response.data[0].msg;
-      // }
     });
   };
 
@@ -70,14 +67,13 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     console.log("Refreshing Dashboard");
     $http.get('/user/dash').then(function(response) {
       console.log('Response on refreshDash: ', response);
-      // if(response.data.username) {
-      // console.log('Inside if in refreshDash: ', response.data[0].total_trips);
-      $scope.thisWeeksTrips = response.data[0].trips_this_week;
-      $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
-      console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
+      $scope.quitDate =  response.data[0].goal_date;
+      // ((new Date().getTime()) - (new Date(quitDate).getTime()));
+      console.log("quitDate", $scope.quitDate);
+      // $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
+      // console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
       // $scope.motivationImg = response.data[0].motivationImg;
       // $scope.motivationMsg = response.data[0].motivationMsg;
-      // }
     });
   };
 
