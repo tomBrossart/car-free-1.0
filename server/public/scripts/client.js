@@ -9,9 +9,12 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
             seconds = Math.floor(difference / 1000),
             minutes = Math.floor(seconds / 60),
             hours = Math.floor(minutes / 60),
-            days = Math.floor(hours / 24);
+            days = Math.floor(hours / 24),
+            remHours = Math.floor(((hours / 24) - days)/ 60),
+            remMinutes = Math.floor(((((hours / 24) - days)/ 60) - remHours)/ 60);
         if (days > 1) {
-            return days + " days ago";
+            // TESTING TO SEE WHAT IS CALCULATING return time + "time" + timeNow + " timeNow " + remHours + " hours " + remMinutes + " minutes!";
+            return days + " days " + remHours + " hours " + remMinutes + " minutes!";
         } else if (days == 1) {
             return "1 day ago";
         } else if (hours > 1) {
