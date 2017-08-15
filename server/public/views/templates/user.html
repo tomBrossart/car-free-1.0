@@ -1,76 +1,61 @@
-<div layout-align="center center">
-<div layout-align="center center">
-      <span class="ng-header">Time car free</span>
-      <h1> {{ quitDate | elapsed }}</h1>
-      <img ng-src=" {{ motivationImg }} "  class="md-card-image" alt="Motivational Img">
-      <!-- INSERT COUNTER HERE -->
-    </div>
+<div style="background:lightGreen" layout-align="center center">
+  <div flex="100" style="background-image:url('back2.png'); height:300px" layout="column" layout-margin>
+  <div layout-align="center center">
+    <span class="ng-header">Time car free</span>
+    <h1> {{ quitDate | elapsed }}</h1>
+    <!-- INSERT COUNTER HERE -->
+  </div>
+</div>
 
-<md-list>
+  <md-list>
     <md-divider></md-divider>
-</md-list>
-  <div style="background:lightBlue" layout-align="center center">
+  </md-list>
+  <div style="background:slateGrey; height:200px" layout-align="center center" layout-margin>
     <h3>Money saved:</h3>
-    <h3> {{thingsHere}}</h3>
+    <h3> {{moneySaved}} </h3>
     <h5>Per year:</h5>
-    <h5> {{ thingsHeretoo }} </h5>
+    <h5> {{ moneyPerYear }} </h5>
   </div>
   <md-list>
-      <md-divider></md-divider>
+    <md-divider></md-divider>
   </md-list>
-  <div style="background:lightBlue" layout-align="center center">
-    <h3>Time not spent alone in traffic: {{FILLTHIS}}</h3>
-    <h3> Cartrips not driven: {{ }}</h3>
-    <h5>Cravings resisted: {{ }}</h5>
+  <div style="height:300px" style="background:lightBlue" layout-align="center center">
+    <h3>Your carFree adventure, by the numbers:</h3>
+    <h5>Time not spent alone in traffic: {{ timeNotAlone }}</h5>
+    <h5> Cartrips not driven: {{ notDriven }}</h5>
+    <h5>Cravings resisted: {{ cravingsResisted }}</h5>
   </div>
 
 
+  <div style="height:300px" layout="row" flex="100" layout-align="center">
+    <md-card class="md-whiteframe-1dp" flex="100" style="background:white" layout="column">
+      <div flex="100" style="background-image:url('img1.png')" layout-margin layout="column">
+<!-- HOW TO ADD?  style="background-img:{{ motivationImg }}" -->
+          <div flex>
+            <h1>Coming soon</h1>
+            <h3>Save up for something:</h3>
+            <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
+          </div>
+  </div>
+</md-card>
+</div>
 
+<div style="height:300px" layout="row" flex="100" layout-align="center">
+  <md-card flex="100">
+    <div flex="100" style="background-image:url('back1.png')" layout-margin layout="column">
 
-
-
-
-<div layout="row" flex="100" layout-align="center">
-   <md-card class="md-whiteframe-1dp" flex="100" style="background:white" layout="column">
-     <div style="background:darkgreen" flex="80" layout="row" layout-align="end">
-       <div flex="100" layout-margin layout="column">
-         <div flex style="background-img:{{ motivationImg }}">
-           <h3>Save up for something</h3>
-           <p>Filler text is the greatest, especially here and here and here. </p>
-           <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
-         </div>
-         <!-- <div style="background:yellow" flex>
-         </div>
-         <div style="background:blue" flex>
-         </div> -->
-       </div>
-     </div>
-     <div layout="row" layout-align="center center" flex>
-       <label style="font-size:30px">Products</label>
-     </div>
-   </md-card>
- </div>
-
-
- <md-card>
-   <div class="">
-
-        <img ng-src="{{ motivationImg }}" class="md-card-image" alt="Washed Out">
-        <md-card-content>
-          <h3>fuck this</h3>
-      <div layout="row" layout-align="center end">
-        <md-card-actions layout="row" layout-align="center center">
-          <md-button class="md-icon-button" aria-label="Favorite">
-            <md-icon class="material-icons">exit</md-icon>
-          </md-button>
-          <div layout="row" layout-align="center end">
-            <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
-        </div>
+    <!-- <img ng-src="{{ motivationImg }}" class="md-card-image" alt="Washed Out"> -->
+    <md-card-content>
+      <h3>Your Cravings</h3>
+      <div flex layout="row" layout-align="center end">
+        <md-card-actions>
+          <md-button flex class="md-accent md-raised" aria-label="Explore">Explore</md-button>
+            <md-button flex name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
         </md-card-actions>
       </div>
-      </md-card-content>
-      </div>
-
+    </md-card-content>
+  </div>
   </md-card>
+</div>
 
 </div>

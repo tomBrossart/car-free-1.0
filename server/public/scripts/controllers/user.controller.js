@@ -68,6 +68,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     $http.get('/user/dash').then(function(response) {
       console.log('Response on refreshDash: ', response);
       $scope.quitDate =  response.data[0].goal_date;
+      $scope.moneySaved =  response.data[0].goal_date;
       // ((new Date().getTime()) - (new Date(quitDate).getTime()));
       console.log("quitDate", $scope.quitDate);
       // $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;

@@ -13,7 +13,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
         if (days > 1) {
             return days + " days ago";
         } else if (days == 1) {
-            return "1 day ago"
+            return "1 day ago";
         } else if (hours > 1) {
             return hours + " hours ago";
         } else if (hours == 1) {
@@ -25,8 +25,8 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
         } else {
             return "a few seconds ago";
         }
-    }
-})
+    };
+});
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
