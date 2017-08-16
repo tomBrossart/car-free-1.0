@@ -30,26 +30,22 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   // when user clicks "I had a craving" button
   $scope.showAC = function(ev) {
     console.log('User had a craving, let em enter it and then show them support');
-    var confirm = $mdDialog.prompt()
-      .title('Add Craving')
-      .textContent('How strong is your desire to drive?')
-      .placeholder('1 - 10')
-      .ariaLabel('Add craving')
-      .initialValue('1')
-      .targetEvent(ev)
-      .ok('Save!')
-      .cancel('Cancel');
-      // .openFrom('#bottm') IF TIME MAKE THESE FUNCTIONAL
-      // .closeTo('#top');
-
-    $mdDialog.show(confirm).then(function(result) {
-      $scope.status = 'You\'r desire to drive is: ' + result + '.';
-      $scope.addCrave();
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/views/templates/tabDialog.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true
+    })
+    .then(function() {
+      // ADD REDIRECT HERE?
+      $scope.status = 'You said the information was.';
+      //  "' + answer + '" NEED THIS?
     }, function() {
-      $scope.status = 'Add Craving Cancelled';
+      // ADD TOAST HERE TO CONFIRM NO ADDITION
+      $scope.status = 'You cancelled the dialog.';
     });
   };
-
 
   // load up user motivation img and msg
   // TO DO update this now that project pivoted
