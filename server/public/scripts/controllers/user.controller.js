@@ -3,7 +3,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   var vm = this;
   //  TRYING TO SWITCH TO $scope
   vm.userService = UserService;
-  vm.userObject = UserService.userObject;
+  $scope.userObject = UserService.userObject;
 
   // MAYBE ADD THIS BACK LATER ... ['$scope', '$http', '$location','$mdBottomSheet','$mdSidenav', '$mdDialog',
 
@@ -54,39 +54,39 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
   // load up user motivation img and msg
   // TO DO update this now that project pivoted
-  $scope.loadDash = function() {
-    console.log("Loading Dashboard");
-    $http.get('/user/load').then(function(response) {
-      console.log('Response on loadDash: ', response);
-      $scope.motivationImg = response.data[0].img;
-      $scope.motivationMsg = response.data[0].msg;
-    });
-  };
+  // $scope.loadDash = function() {
+  //   console.log("Loading Dashboard");
+  //   $http.get('/user/load').then(function(response) {
+  //     console.log('Response on loadDash: ', response);
+  //     $scope.motivationImg = response.data[0].img;
+  //     $scope.motivationMsg = response.data[0].msg;
+  //   });
+  // };
 
   // method to get refreshed user dashboard data
-  $scope.refreshDash = function() {
-    console.log("Refreshing Dashboard");
-    $http.get('/user/dash').then(function(response) {
-      console.log('Response on refreshDash: ', response);
-      $scope.quitDate =  response.data[0].goal_date;
-      $scope.moneySaved =  (response.data[0].avg_trip * 5);
-      $scope.moneyPerYear =  (response.data[0].avg_trip * 5);
-      $scope.timeNotAlone =  (response.data[0].avg_trip * 5);
-      $scope.notDriven =  (response.data[0].week_trips * 5);
-      $scope.cravingsResisted =  (response.data[0].total_cravings);
-      // ((new Date().getTime()) - (new Date(quitDate).getTime()));
-      console.log("quitDate", $scope.quitDate);
-      // $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
-      // console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
-      // $scope.motivationImg = response.data[0].motivationImg;
-      // $scope.motivationMsg = response.data[0].motivationMsg;
-    });
-  };
+  // $scope.refreshDash = function() {
+  //   console.log("Refreshing Dashboard");
+  //   $http.get('/user/dash').then(function(response) {
+  //     console.log('Response on refreshDash: ', response);
+  //     $scope.quitDate =  response.data[0].goal_date;
+  //     $scope.moneySaved =  (response.data[0].avg_trip * 5);
+  //     $scope.moneyPerYear =  (response.data[0].avg_trip * 5);
+  //     $scope.timeNotAlone =  (response.data[0].avg_trip * 5);
+  //     $scope.notDriven =  (response.data[0].week_trips * 5);
+  //     $scope.cravingsResisted =  (response.data[0].total_cravings);
+  //     // ((new Date().getTime()) - (new Date(quitDate).getTime()));
+  //     console.log("quitDate", $scope.quitDate);
+  //     // $scope.thisWeeksGoal = response.data[0].goal_trips_this_week;
+  //     // console.log('thisWeeksTrips: ', $scope.thisWeeksTrips);
+  //     // $scope.motivationImg = response.data[0].motivationImg;
+  //     // $scope.motivationMsg = response.data[0].motivationMsg;
+  //   });
+  // };
 
 
   // method to display additional motivation msg/img
-  $scope.loadDash();
-  $scope.refreshDash();
+  // $scope.loadDash();
+  vm.userService.refDash();
 
   function DialogController($scope, $mdDialog) {
     $scope.hide = function() {
