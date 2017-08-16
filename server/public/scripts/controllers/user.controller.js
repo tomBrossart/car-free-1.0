@@ -16,7 +16,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
       clickOutsideToClose:true
     })
     .then(function() {
-      // ADD REDIRECT HERE?
+      $location.path('/cravings');
       $scope.status = 'You said the information was.';
       //  "' + answer + '" NEED THIS?
     }, function() {
@@ -33,6 +33,11 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     .position('top left')
   );
 };
+
+  $scope.exploreCravings = function() {
+    console.log("go to exploreCravings");
+    $location.path('/cravings');
+  };
 
 // load up user motivation img and msg
 // TO DO update this now that project pivoted

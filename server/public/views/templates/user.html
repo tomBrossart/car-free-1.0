@@ -1,61 +1,54 @@
 <div layout-align="center center">
   <div flex="100" style="background-image:url('back2.png'); height:300px; padding:10px" layout="column">
-  <div layout-align="center center">
+  <div layout-align="center center" layout-margin>
     <span class="ng-header">Time car free</span>
     <h2> {{ userObject.quitDate | elapsed }}</h2>
     <!-- INSERT COUNTER HERE -->
   </div>
 </div>
 
-  <md-list>
-    <md-divider></md-divider>
-  </md-list>
-  <div style="background:slateGrey; height:200px" layout-align="center center" layout-margin>
+
+  <div style="height:200px" layout-align="center center">
+    <div layout-margin>
+
     <h3>Money saved:</h3>
     <h3> {{userObject.moneySaved | currency}} </h3>
     <h5>Per year:</h5>
     <h5> {{ userObject.moneyPerYear | currency }} </h5>
   </div>
-  <md-list>
-    <md-divider></md-divider>
-  </md-list>
-  <div style="height:300px" style="background:lightBlue" layout-align="center center">
+</div>
+
+  <div style="height:300px;background-image:url('back2.png')" layout-align="center center">
+    <div layout-align="center center" layout-margin>
     <h3>Your carFree adventure so far, by the numbers:</h3>
     <h5>Time not spent alone in traffic: {{ userObject.timeNotAlone }} minutes</h5>
     <h5> Cartrips not driven: {{ userObject.notDriven }}</h5>
     <h5>Cravings resisted: {{ userObject.cravingsResisted }}</h5>
   </div>
+</div>
 
 
   <div style="height:300px" layout="row" flex="100" layout-align="center">
-    <md-card class="md-whiteframe-1dp" flex="100" style="background:slateGray" layout="column">
+    <div layout-align="center center" layout-margin>
       <!-- <div flex="100" style="background-image:url('img1.png')" layout-margin layout="column"> -->
 <!-- HOW TO ADD?  style="background-img:{{ motivationImg }}" -->
-          <div flex>
             <h1>Coming soon</h1>
             <h3>Save up for something:</h3>
             <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
-          <!-- </div> -->
-  </div>
-</md-card>
+</div>
+</div>
 </div>
 
-<div style="height:300px" layout="row" flex="100" layout-align="center">
-  <md-card flex="100">
-    <div flex="100" style="background-image:url('back1.png')" layout-margin layout="column">
+<div style="background-image:url('back2.png'); height:300px" layout="row" flex="100" layout-align="center">
+    <div flex="100" layout-margin layout-padding layout="column">
 
     <!-- <img ng-src="{{ motivationImg }}" class="md-card-image" alt="Washed Out"> -->
-    <md-card-content>
       <h3>Your Cravings</h3>
       <div flex layout="row" layout-align="center end">
-        <md-card-actions>
           <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
-          <md-button flex class="md-accent md-raised" aria-label="Explore">Explore</md-button>
-        </md-card-actions>
+          <md-button flex class="md-accent md-raised" ng-click="exploreCravings()" aria-label="Explore">Explore</md-button>
       </div>
-    </md-card-content>
   </div>
-  </md-card>
 </div>
 
 </div>
