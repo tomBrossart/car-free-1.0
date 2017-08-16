@@ -63,8 +63,15 @@ router.get('/logout', function(req, res) {
 });
 
 // update db with "I drove" button increment
-router.put('/crave', function(req, res) {
+router.post('/crave', function(req, res) {
   console.log('put /user/drove route', req);
+
+  var addCrave = {
+    desire : req.body.desire,
+    location : req.body.location,
+    notes :  req.body.notes
+  };
+
   pool.connect(function(err, client, done) {
     if(err) {
       console.log("Error connecting to db: ", err);
@@ -72,8 +79,8 @@ router.put('/crave', function(req, res) {
       next(err); // verfiy what this line is doing
     } else {
       // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
-    var queryText = "UPDATE profile SET total_cravings = total_cravings + 1 WHERE user_id = $1;";
-    client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
+    var queryText = 'INSERT INTO "cravings"  ("user_id", "strength_of_desire", "location", "notes") VALUES ($1, $2, $3, $4);';
+    client.query(queryText, [req.user.id, addCrave.desire, addCrave.location, addCrave.notes], function (errorMakingQuery, result) {
       done();
       if(errorMakingQuery) {
         console.log('Attempted to query with', queryText);

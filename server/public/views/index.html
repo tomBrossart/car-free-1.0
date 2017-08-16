@@ -40,7 +40,7 @@
 
 
 <!-- add back in scroll shrink if figured out issue md-scroll-shrink -->
-<md-toolbar  class="md-hue-4" style="height:700px" ng-controller="NavController as nc">
+<md-toolbar  md-theme="docs-dark" class="md-hue-4" style="height:700px" ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
     <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
       <md-icon class="material-icons">menu</md-icon>
@@ -61,7 +61,7 @@
         <md-toolbar class="md-theme-indigo md-hue-2"> <h1 class="md-toolbar-tools">{{nc.userService.userObject.userName}}'s Account</h1>
         </md-toolbar>
 
-    <md-content layout-margin layout-align="center">
+    <md-content md-theme="docs-dark" layout-margin layout-align="center">
       <md-card>
         <!-- <div class="welcomeMsg" layout="column" flex=70>
           <md-truncate>carFree</md-truncate>
@@ -77,16 +77,16 @@
             <div flex layout="column" layout-margin layout-align="stretch start">
             <!-- If user is not logged in the disable Dashboard and Profile -->
             <div layout="row">
-            <md-button flex class="md-primary md-hue-3 md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()"><a href="#/user">Dashboard </a></md-button>
+            <md-button flex class="md-primary md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()"><a href="#/user">Dashboard </a></md-button>
           </div>
           <div layout="row" flex="100">
-            <md-button flex class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/info">Profile </a></md-button>
+            <md-button flex class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/info">Profile </a></md-button>
           </div>
           <div layout="row" flex="100">
             <md-button flex class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/resources">Resources</a> </md-button>
           </div>
             <div layout="row" flex="100">
-            <md-button flex class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
+            <md-button flex class="md-primary md-hue-4 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
           </div>
             <div layout="row" flex="100">
             <md-button flex layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
@@ -110,12 +110,12 @@
 
 
 <!-- Container #2 -->
-<div flex layout="column">
+<div md-theme="docs-dark" flex layout="column">
 
   <!-- Container #3 -->
   <md-content>
 
-    <main ng-view></main>
+    <main md-theme="docs-dark"  ng-view></main>
 
 
   </md-content>
