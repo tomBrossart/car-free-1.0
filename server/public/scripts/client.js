@@ -32,7 +32,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
 });
 
 /// Routes ///
-myApp.config(function($routeProvider, $locationProvider) {
+myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
   $locationProvider.hashPrefix('');
   console.log('myApp -- config');
   $routeProvider
@@ -101,4 +101,9 @@ myApp.config(function($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: 'home'
     });
+
+    $mdThemingProvider.theme('docs-dark', 'default')
+    .primaryPalette('blue')
+    .dark();
+
 });
