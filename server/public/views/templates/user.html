@@ -1,5 +1,5 @@
-<div style="background:lightGreen" layout-align="center center">
-  <div flex="100" style="background-image:url('back2.png'); height:300px" layout="column" layout-margin>
+<div style="background:white" layout-align="center center">
+  <div flex="100" style="background-image:url('back2.png'); height:300px; padding:10px" layout="column">
   <div layout-align="center center">
     <span class="ng-header">Time car free</span>
     <h2> {{ quitDate | elapsed }}</h2>
@@ -29,13 +29,13 @@
 
   <div style="height:300px" layout="row" flex="100" layout-align="center">
     <md-card class="md-whiteframe-1dp" flex="100" style="background:white" layout="column">
-      <div flex="100" style="background-image:url('img1.png')" layout-margin layout="column">
+      <!-- <div flex="100" style="background-image:url('img1.png')" layout-margin layout="column"> -->
 <!-- HOW TO ADD?  style="background-img:{{ motivationImg }}" -->
           <div flex>
             <h1>Coming soon</h1>
             <h3>Save up for something:</h3>
             <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
-          </div>
+          <!-- </div> -->
   </div>
 </md-card>
 </div>
@@ -49,8 +49,8 @@
       <h3>Your Cravings</h3>
       <div flex layout="row" layout-align="center end">
         <md-card-actions>
+          <md-button flex name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
           <md-button flex class="md-accent md-raised" aria-label="Explore">Explore</md-button>
-            <md-button flex name="button" ng-click="craving($event)" class="md-primary md-raised">Add craving</md-button>
         </md-card-actions>
       </div>
     </md-card-content>
