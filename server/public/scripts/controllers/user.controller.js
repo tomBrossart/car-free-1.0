@@ -5,52 +5,51 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   vm.userService = UserService;
   $scope.userObject = UserService.userObject;
 
-  // MAYBE ADD THIS BACK LATER ... ['$scope', '$http', '$location','$mdBottomSheet','$mdSidenav', '$mdDialog',
 
-
-  // when user clicks "I drove" button
-  $scope.drove = function(ev) {
-    console.log("Increment current usage by 1 in db");
-    $http.put('/user/drove').then(function(response) {
-      console.log("Res from $scope.drove: ", response);
-      $scope.refreshDash();
+  // RE USE THIS ROUTE FOR SOMETHING OR DELETE
+  $scope.addCrave = function(ev) {
+    console.log("Adding craving to db");
+    $http.put('/user/crave').then(function(response) {
+      console.log("Res from $scope.addCrave: ", response);
+      vm.userService.refDash();
     });
-    $mdDialog.show(
-      $mdDialog.confirm()
-      .parent(angular.element(document.querySelector('#popupContainer')))
-      .clickOutsideToClose(true)
-      .title('Nice job tracking your progress!')
-      .textContent('Any notes to record?')
-      .ariaLabel('Alert Dialog Demo')
-      .ok('Yep!')
-      .cancel('No thanks')
-      .targetEvent(ev)
-      .multiple(true)
-    );
+    // $mdDialog.show(
+    //   $mdDialog.confirm()
+    //   .parent(angular.element(document.querySelector('#popupContainer')))
+    //   .clickOutsideToClose(true)
+    //   .title('Nice job tracking your progress!')
+    //   .textContent('Any notes to record?')
+    //   .ariaLabel('Alert Dialog Demo')
+    //   .ok('Yep!')
+    //   .cancel('No thanks')
+    //   .targetEvent(ev)
+    //   .multiple(true)
+    // );
   };
 
   // when user clicks "I had a craving" button
-  $scope.craving = function(ev) {
-    console.log('User had a craving, show them support');
-    // do I need to make a get request here? yes, but for now I can hardcode tabDialog
-    // $http.get('/user/craving').then(function(response) {
-    //   console.log("Res from $scope.craving: ", response);
-    //   $scope.refreshDash();
-    // });
-    $mdDialog.show({
-      controller: DialogController,
-      templateUrl: '/views/templates/tabDialog.tmpl.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true
-    })
-    .then(function() {
-      $scope.status = 'You said the information was.';
-      //  "' + answer + '" NEED THIS?
+  $scope.showAC = function(ev) {
+    console.log('User had a craving, let em enter it and then show them support');
+    var confirm = $mdDialog.prompt()
+      .title('Add Craving')
+      .textContent('How strong is your desire to drive?')
+      .placeholder('1 - 10')
+      .ariaLabel('Add craving')
+      .initialValue('1')
+      .targetEvent(ev)
+      .ok('Save!')
+      .cancel('Cancel');
+      // .openFrom('#bottm') IF TIME MAKE THESE FUNCTIONAL
+      // .closeTo('#top');
+
+    $mdDialog.show(confirm).then(function(result) {
+      $scope.status = 'You\'r desire to drive is: ' + result + '.';
+      $scope.addCrave();
     }, function() {
-      $scope.status = 'You cancelled the dialog.';
+      $scope.status = 'Add Craving Cancelled';
     });
   };
+
 
   // load up user motivation img and msg
   // TO DO update this now that project pivoted

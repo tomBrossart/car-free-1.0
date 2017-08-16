@@ -63,7 +63,7 @@ router.get('/logout', function(req, res) {
 });
 
 // update db with "I drove" button increment
-router.put('/drove', function(req, res) {
+router.put('/crave', function(req, res) {
   console.log('put /user/drove route', req);
   pool.connect(function(err, client, done) {
     if(err) {
@@ -72,7 +72,7 @@ router.put('/drove', function(req, res) {
       next(err); // verfiy what this line is doing
     } else {
       // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
-    var queryText = "UPDATE profile SET total_trips = total_trips + 1, trips_this_week = trips_this_week + 1 WHERE user_id = $1;";
+    var queryText = "UPDATE profile SET total_cravings = total_cravings + 1 WHERE user_id = $1;";
     client.query(queryText, [req.user.id], function (errorMakingQuery, result) {
       done();
       if(errorMakingQuery) {
@@ -80,7 +80,7 @@ router.put('/drove', function(req, res) {
         console.log('Error making query', errorMakingQuery);
         res.sendStatus(500);
       } else {
-        console.log('/drove result:', result);
+        console.log('/drove result:', result.rows);
         // Send back the results
         res.sendStatus(200);
       }
