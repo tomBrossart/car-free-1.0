@@ -1,41 +1,65 @@
 
-<div layout="column" style="height:1300px;border: 3px solid black">
+<div layout="column" style="height:700px;border: 3px solid black">
   <md-toolbar layout="row" md-scroll-shrink md-hue-2>
-    <div flex="80" class="md-toolbar-tools">Managing your cravings</div>
+    <div flex="80" class="md-toolbar-tools">Review your cravings</div>
   </md-toolbar>
-  <div layout="column" layout-padding>
-    <p>You can see where your cravings happen and the feelins,...asdfa</p>
-    <!-- <img src="back2.png" alt="Craving Icon"> -->
-    <div layout="row">
-      <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
-      <md-button flex class="md-accent md-raised" ng-click="exploreCravings()" aria-label="Explore">Analyze Craving</md-button>
+<!-- JAMES CODE -->
+
+<md-table-container >
+  <table md-table>
+    <thead md-head>
+      <!-- get row to fill page, and figure out truncating notes -->
+      <div layout="row" flex="100">
+      <tr md-row flex>
+        <th md-column><span>Intensity</span></th>
+        <th md-column><span flex>Notes</span></th>
+        <!-- <th md-column>Date</th>
+        <th md-column>Location</th> -->
+        <th md-column></th>
+      </tr>
+    </thead>
+    <tbody md-body >
+      <tr md-row ng-repeat="crave in cravings">
+        <td md-cell>{{crave.intensity}}</td>
+        <td md-cell>{{crave.notes}}</td>
+        <!-- <td md-cell>{{crave.date | date}}</td>
+        <td md-cell>{{crave.location}}</td> -->
+        <td md-cell>
+          <md-list-item>
+          <md-menu class="md-secondary">
+            <md-button class="md-icon-button">
+              <md-icon md-menu-origin>more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item>
+                <md-button>
+                  View/Edit
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                  Delete
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button>
+                  Share...
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </md-list-item>
+          </td>
+      </tr>
     </div>
-  </div>
+    </tbody>
+  </table>
+</md-table-container>
 
-  <!-- <div layout="column" layout-align="center center"> -->
-    <md-toolbar layout="row" md-scroll-shrink md-hue-2>
-      <div flex="80" class="md-toolbar-tools">Dealing with cravings</div>
-    </md-toolbar>
-    <div>
-      <h3 class="md-primary">Tips:</h3>
-      <md-grid-list
-      md-cols="2" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
-      md-row-height-gt-md="1:1" md-row-height="1:1"
-      md-gutter="8px" md-gutter-gt-sm="4px" >
-
-      <md-grid-tile ng-repeat="tile in uc.tiles"
-      md-rowspan="{{tile.span.row}}"
-      md-colspan="{{tile.span.col}}"
-      md-colspan-sm="0.5"
-      md-colspan-xs="0.5"
-      ng-class="tile.background"
-      ng-click="selectMotivation(tile.title)">
-      <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon>
-      <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
-    </md-grid-tile>
-  </md-grid-list>
-
-<!-- </div> -->
-
+<div layout="row" layout-margin>
+  <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
+  <md-button flex class="md-accent md-raised" ng-click="analyzeCravings()" aria-label="Explore">Analyze Craving</md-button>
 </div>
+
 </div>

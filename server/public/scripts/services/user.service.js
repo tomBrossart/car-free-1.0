@@ -2,6 +2,7 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
   console.log('UserService Loaded');
 
   var userObject = {};
+  var craveObject = {};
   var originatorEv;
 
 
@@ -17,6 +18,7 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
 
   return {
     userObject : userObject,
+    craveObject : craveObject,
 
     getuser : function(){
       console.log('UserService -- getuser');
@@ -60,6 +62,18 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
         userObject.cravingsResisted =  (response.data[0].total_cravings);
         // ((new Date().getTime()) - (new Date(quitDate).getTime()));
         console.log("userObject", userObject);
+      });
+    },
+
+    refCrave : function() {
+      console.log('UserService -- refCrave');
+      $http.get('/user/cravings').then(function(response) {
+        console.log('Response on refCrave: ', response);
+        craveObject.intensity =  response.data[0].strength_of_desire;
+        craveObject.notes =  (response.data[0].notes);
+        craveObject.location =  (response.data[0].location);
+        craveObject.date =  (response.data[0].date);
+        console.log("craveObject", craveObject);
       });
     }
 

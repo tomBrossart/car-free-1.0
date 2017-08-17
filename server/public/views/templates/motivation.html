@@ -1,0 +1,27 @@
+<!-- <div layout="column" layout-align="center center"> -->
+  <md-toolbar layout="row" md-scroll-shrink md-hue-2>
+    <div flex="80" class="md-toolbar-tools">Dealing with cravings</div>
+  </md-toolbar>
+  <div layout="row" flex layout-align="center center">
+    <h3>Tap a card for tips:</h3>
+  </div>
+    <md-grid-list
+    md-cols="2" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+    md-row-height-gt-md="1:1" md-row-height="1:1"
+    md-gutter="8px" md-gutter-gt-sm="4px" >
+
+    <md-grid-tile ng-repeat="tile in uc.tiles"
+    md-rowspan="{{tile.span.row}}"
+    md-colspan="{{tile.span.col}}"
+    md-colspan-sm="0.5"
+    md-colspan-xs="0.5"
+    ng-class="tile.background"
+    ng-click="selectMotivation(tile.title)">
+    <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon>
+    <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+  </md-grid-tile>
+</md-grid-list>
+<div layout="row" layout-margin>
+  <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
+  <md-button flex class="md-accent md-raised" ng-click="reviewCravings()" aria-label="Explore">Review Craving</md-button>
+</div>

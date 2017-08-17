@@ -107,6 +107,15 @@ myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
         }
       }
     })
+    .when('/motivation', {
+      templateUrl: '/views/templates/motivation.html',
+      controller: 'UserController as uc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });
