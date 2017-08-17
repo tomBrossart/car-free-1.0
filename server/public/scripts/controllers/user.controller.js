@@ -6,7 +6,6 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   $scope.userObject = UserService.userObject;
 
   console.log("$scope.user...", $scope.userObject);
-  // Why is this one not working??
   console.log("$scope.crave...", $scope.userObject.craveArray);
 
 
@@ -43,6 +42,27 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     console.log("go to reviewCravings");
     $location.path('/cravings');
   };
+
+// show dialog to update/view craving
+  $scope.showUC = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: '/views/templates/tabDialog2.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true
+    })
+    .then(function() {
+      // $location.path('/motivation');
+      $scope.status = 'You said the information was.';
+      //  "' + answer + '" NEED THIS?
+    }, function() {
+      // ADD TOAST HERE TO CONFIRM NO ADDITION
+      $scope.status = 'You cancelled the dialog.';
+    });
+  };
+
+
 
 // method to display additional motivation msg/img
 // $scope.loadDash();
