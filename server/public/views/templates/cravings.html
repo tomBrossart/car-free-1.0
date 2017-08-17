@@ -1,13 +1,41 @@
-<div layout="column" style="height:700px;border: 3px solid black">
+
+<div layout="column" style="height:1300px;border: 3px solid black">
+  <md-toolbar layout="row" md-scroll-shrink md-hue-2>
+    <div flex="80" class="md-toolbar-tools">Managing your cravings</div>
+  </md-toolbar>
   <div layout="column" layout-padding>
-    <h4>Manage Your Cravings</h4>
     <p>You can see where your cravings happen and the feelins,...asdfa</p>
     <!-- <img src="back2.png" alt="Craving Icon"> -->
-    <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
-    <md-button flex class="md-accent md-raised" ng-click="exploreCravings()" aria-label="Explore">Analyze Craving</md-button>
+    <div layout="row">
+      <md-button flex name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
+      <md-button flex class="md-accent md-raised" ng-click="exploreCravings()" aria-label="Explore">Analyze Craving</md-button>
+    </div>
   </div>
-  <div>
-    <h4>Dealing with cravings</h4>
-      <p>Add MD grid something here to show tips on fancy grids</p>
-  </div>
+
+  <!-- <div layout="column" layout-align="center center"> -->
+    <md-toolbar layout="row" md-scroll-shrink md-hue-2>
+      <div flex="80" class="md-toolbar-tools">Dealing with cravings</div>
+    </md-toolbar>
+    <div>
+      <h3 class="md-primary">Tips:</h3>
+      <md-grid-list
+      md-cols="2" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+      md-row-height-gt-md="1:1" md-row-height="1:1"
+      md-gutter="8px" md-gutter-gt-sm="4px" >
+
+      <md-grid-tile ng-repeat="tile in uc.tiles"
+      md-rowspan="{{tile.span.row}}"
+      md-colspan="{{tile.span.col}}"
+      md-colspan-sm="0.5"
+      md-colspan-xs="0.5"
+      ng-class="tile.background"
+      ng-click="selectMotivation(tile.title)">
+      <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon>
+      <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+
+<!-- </div> -->
+
+</div>
 </div>

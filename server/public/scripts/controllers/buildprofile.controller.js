@@ -98,11 +98,6 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
         it.title = "Other";
         it.background = "pink";
         break;
-        //    case 7: it.background = "darkBlue";      break;
-        //    case 8: it.background = "purple";        break;
-        //    case 9: it.background = "deepBlue";      break;
-        //    case 10: it.background = "lightPurple";  break;
-        //    case 11: it.background = "yellow";       break;
       }
 
       results.push(it);
