@@ -10,13 +10,18 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
 
   // when user clicks "I had a craving" button
-  $scope.showAC = function(ev) {
+  $scope.showAC = function(crave, ev) {
     console.log('User had a craving, let em enter it and then show them support');
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/views/templates/tabDialog.tmpl.html',
       parent: angular.element(document.body),
       targetEvent: ev,
+      resolve: {
+        crave: function() {
+          return crave;
+        }
+      },
       clickOutsideToClose:true
     })
     .then(function() {

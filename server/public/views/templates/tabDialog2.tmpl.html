@@ -13,7 +13,7 @@
           <md-content class="md-padding">
             <div>
               <h5 class="md-display-6">How strong WAS your desire to drive?</h5>
-              <md-slider flex min="0" max="10" ng-model="crave.desire" aria-label="desire" id="desire-slider" class>
+              <md-slider flex min="0" max="10" ng-model="crave.desire" aria-label="desire" id="desire-slider">
               </md-slider>
             </div>
             <md-divider></md-divider>
@@ -40,7 +40,7 @@
 
     <md-dialog-actions layout="row">
       <!-- <span flex></span>   answer('useful')-->
-      <md-button flex class="md-primary md-hue-2 md-raised" ng-click="answer(); updateCrave()" style="margin-right:20px;" >
+      <md-button class="md-primary md-hue-2 md-raised" ng-click="answer(); updateCrave()" style="margin-right:20px;" >
         Update
       </md-button>
     </md-dialog-actions>

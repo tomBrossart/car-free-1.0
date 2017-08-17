@@ -77,20 +77,20 @@
             <div flex layout="column" layout-margin layout-align="stretch start">
             <!-- If user is not logged in the disable Dashboard and Profile -->
             <div layout="row">
-            <md-button flex class="md-primary md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()"><a href="#/user">Dashboard </a></md-button>
+            <md-button class="md-primary md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()" href="#/user">Dashboard</md-button>
           </div>
           <div layout="row" flex="100">
-            <md-button flex class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/info">Profile </a></md-button>
+            <md-button class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()" href="#/info">Profile</md-button>
           </div>
           <div layout="row" flex="100">
-            <md-button flex class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()"> <a href="#/resources">Resources</a> </md-button>
+            <md-button class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()" href="#/resources">Resources</md-button>
           </div>
             <div layout="row" flex="100">
-            <md-button flex class="md-primary md-hue-4 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
+            <md-button class="md-primary md-hue-4 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
           </div>
             <div layout="row" flex="100">
-            <md-button flex layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
-              <md-icon flex class="material-icons">close</md-icon>
+            <md-button layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
+              <md-icon class="material-icons">close</md-icon>
              </md-button>
            </div>
            </div>

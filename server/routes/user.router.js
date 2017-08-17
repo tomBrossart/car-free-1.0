@@ -69,7 +69,8 @@ router.post('/crave', function(req, res) {
   var addCrave = {
     desire : req.body.desire,
     location : req.body.location,
-    notes :  req.body.notes
+    notes :  req.body.notes,
+    date : new Date()
   };
 
   pool.connect(function(err, client, done) {
@@ -79,8 +80,8 @@ router.post('/crave', function(req, res) {
       next(err); // verfiy what this line is doing
     } else {
       // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
-    var queryText = 'INSERT INTO "cravings"  ("user_id", "strength_of_desire", "location", "notes") VALUES ($1, $2, $3, $4);';
-    client.query(queryText, [req.user.id, addCrave.desire, addCrave.location, addCrave.notes], function (errorMakingQuery, result) {
+    var queryText = 'INSERT INTO "cravings"  ("user_id", "strength_of_desire", "location", "notes", "date") VALUES ($1, $2, $3, $4, $5);';
+    client.query(queryText, [req.user.id, addCrave.desire, addCrave.location, addCrave.notes, addCrave.date], function (errorMakingQuery, result) {
       done();
       if(errorMakingQuery) {
         console.log('Attempted to query with', queryText);
