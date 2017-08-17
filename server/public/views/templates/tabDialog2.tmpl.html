@@ -12,7 +12,7 @@
     <md-dialog-content style="max-width:800px;max-height:810px; ">
           <md-content class="md-padding">
             <div>
-              <h5 class="md-display-6">How strong is your desire to drive?</h5>
+              <h5 class="md-display-6">How strong WAS your desire to drive?</h5>
               <md-slider flex min="0" max="10" ng-model="crave.desire" aria-label="desire" id="desire-slider" class>
               </md-slider>
             </div>
@@ -23,7 +23,7 @@
               <!-- <md-icon class="material-icons" aria-label="location icon">location</md-icon> -->
               <h5 flex>Location</h5>
               <md-input-container flex>
-                         <label>Where ya at?</label>
+                         <label>Where were you?</label>
                          <input ng-model="crave.location">
              </md-input-container>
              </div>
@@ -32,19 +32,16 @@
             <md-divider></md-divider>
             <h5 flex>Notes</h5>
             <md-input-container class="md-block">
-              <label>What are you doing? What notes will help <br/> you stay carFree in this context in the future?</label>
+              <label>What were you doing? What notes will help <br/> you stay carFree in this context in the future?</label>
               <textarea ng-model="crave.notes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </md-content>
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
-      <md-button ng-hide="true" flex href="https://en.wikipedia.org/wiki/List_of_car-free_places" target="_blank" md-autofocus>
-        Phone a friend
-      </md-button>
       <!-- <span flex></span>   answer('useful')-->
-      <md-button flex class="md-primary md-hue-2 md-raised" ng-click="answer(); addCrave($event)" style="margin-right:20px;" >
-        Save
+      <md-button flex class="md-primary md-hue-2 md-raised" ng-click="answer(); updateCrave(crave.id)" style="margin-right:20px;" >
+        Update
       </md-button>
     </md-dialog-actions>
   </form>

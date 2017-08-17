@@ -62,9 +62,9 @@ router.get('/logout', function(req, res) {
   res.sendStatus(200);
 });
 
-// update db with "I drove" button increment
+// post new craving to db
 router.post('/crave', function(req, res) {
-  console.log('put /user/drove route', req);
+  console.log('put /user/crave route', req);
 
   var addCrave = {
     desire : req.body.desire,
@@ -87,7 +87,7 @@ router.post('/crave', function(req, res) {
         console.log('Error making query', errorMakingQuery);
         res.sendStatus(500);
       } else {
-        console.log('/drove result:', result.rows);
+        console.log('/crave result:', result.rows);
         // Send back the results
         res.sendStatus(200);
       }
@@ -96,9 +96,47 @@ router.post('/crave', function(req, res) {
   });
 });
 
+// post new craving to db
+router.put('/crave/:id', function(req, res) {
+  console.log('put /user/crave route', req.body);
+
+  var upCrave = {
+    desire : req.body.desire,
+    location : req.body.location,
+    notes :  req.body.notes,
+    crave_id : req.params.id
+  };
+
+console.log('upCrave coming through as:', upCrave);
+  pool.connect(function(err, client, done) {
+    if(err) {
+      console.log("Error connecting to db: ", err);
+      res.sendStatus(500);
+      next(err); // verfiy what this line is doing
+    } else {
+      // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
+    var queryText = 'UPDATE "cravings" SET "strength_of_desire" = $1, "location" = $2, "notes" = $3 WHERE "id" = $4;';
+    client.query(queryText, [upCrave.desire, upCrave.location, upCrave.notes, upCrave.crave_id], function (errorMakingQuery, result) {
+      done();
+      if(errorMakingQuery) {
+        console.log('Attempted to query with', queryText);
+        console.log('Error making query', errorMakingQuery);
+        res.sendStatus(500);
+      } else {
+        console.log('/crave result:', result.rows);
+        // Send back the results
+        res.sendStatus(200);
+      }
+    });
+    }
+  });
+});
+
+
+
 // get updated usage data and send back to client
 router.get('/dash', function(req, res) {
-  console.log('get /user/dash route');
+  // console.log('get /user/dash route');
   // check if logged in
   if(req.isAuthenticated()) {
     // send back user object from database
@@ -137,7 +175,7 @@ router.get('/dash', function(req, res) {
 
 // get motivation img and msg
 router.get('/load', function(req, res) {
-  console.log('get /user/load route');
+  // console.log('get /user/load route');
   // check if logged in
   if(req.isAuthenticated()) {
     // send back user object from database
@@ -177,7 +215,7 @@ router.get('/load', function(req, res) {
 
 // get updated usage data and send back to client
 router.get('/cravings', function(req, res) {
-  console.log('get /user/cravings route');
+  // console.log('get /user/cravings route');
   // check if logged in
   if(req.isAuthenticated()) {
     // send back user object from database

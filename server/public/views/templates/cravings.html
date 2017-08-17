@@ -1,5 +1,5 @@
 
-<div layout="column" style="height:1700px;border: 3px solid black">
+<div layout="column" style="height:700px;border: 3px solid black">
   <md-toolbar layout="row" md-scroll-shrink md-hue-2>
     <div flex="80" class="md-toolbar-tools">Review your cravings</div>
   </md-toolbar>
@@ -33,7 +33,7 @@
             </md-button>
             <md-menu-content width="4">
               <md-menu-item>
-                <md-button ng-click="showUC()">
+                <md-button ng-click="showUC(crave, $event)">
                   View/Edit
                 </md-button>
               </md-menu-item>
@@ -52,6 +52,7 @@
           </md-menu>
         </md-list-item>
           </td>
+          <!-- <md-divider></md-divider> -->
       </tr>
     </div>
     </tbody>

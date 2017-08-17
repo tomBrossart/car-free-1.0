@@ -44,12 +44,19 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   };
 
 // show dialog to update/view craving
-  $scope.showUC = function(ev) {
+  $scope.showUC = function(crave, ev) {
+    console.log("inside showUC ev is:", ev);
     $mdDialog.show({
       controller: DialogController,
       templateUrl: '/views/templates/tabDialog2.tmpl.html',
       parent: angular.element(document.body),
       targetEvent: ev,
+ // make the specific craving available to DialogController
+      resolve: {
+        crave: function() {
+          return crave;
+        }
+      },
       clickOutsideToClose:true
     })
     .then(function() {
@@ -69,7 +76,11 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 vm.userService.refDash();
 vm.userService.refCrave();
 
-function DialogController($scope, $mdDialog) {
+// controller for Dialogs...
+function DialogController($scope, $mdDialog, crave) {
+  // console.log("inside DC ev is:",  ev);
+  console.log("inside DC crave is:",  crave);
+
   $scope.hide = function() {
     $mdDialog.hide();
   };
@@ -82,6 +93,7 @@ function DialogController($scope, $mdDialog) {
     $mdDialog.hide(answer);
   };
 
+// will this be an issue if both add and update use this object?
   $scope.crave = {};
 
   $scope.addCrave = function(ev) {
@@ -92,20 +104,21 @@ function DialogController($scope, $mdDialog) {
       vm.userService.refCrave();
       vm.craveToast(ev);
     });
-    // $mdDialog.show(
-    //   $mdDialog.confirm()
-    //   .parent(angular.element(document.querySelector('#popupContainer')))
-    //   .clickOutsideToClose(true)
-    //   .title('Nice job tracking your progress!')
-    //   .textContent('Any notes to record?')
-    //   .ariaLabel('Alert Dialog Demo')
-    //   .ok('Yep!')
-    //   .cancel('No thanks')
-    //   .targetEvent(ev)
-    //   .multiple(true)
-    // );
   };
-}
+
+  $scope.updateCrave = function(ev) {
+    console.log("specific craving is", ev);
+    console.log("Updating craving in db -- ", $scope.crave);
+    $http.put('/user/crave/' + crave.id, $scope.crave).then(function(response) {
+      console.log("Res from $scope.updateCrave: ", response);
+      vm.userService.refCrave();
+      vm.craveToast(ev);
+    });
+  };
+
+} // end of DialogController
+
+
 
 this.tiles = buildGridModel({
   icon : "",
