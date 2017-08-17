@@ -133,6 +133,35 @@ console.log('upCrave coming through as:', upCrave);
 });
 
 
+// delete craving from db
+router.delete('/crave/:id', function(req, res) {
+  console.log('delete /user/crave route', req.body);
+
+  pool.connect(function(err, client, done) {
+    if(err) {
+      console.log("Error connecting to db: ", err);
+      res.sendStatus(500);
+      next(err); // verfiy what this line is doing
+    } else {
+      // TO DO FIGURE OUT WHY THIS ISN'T RETURNING
+    var queryText = 'DELETE FROM "cravings" WHERE "id" = $1';
+    client.query(queryText, [req.params.id], function (errorMakingQuery, result) {
+      done();
+      if(errorMakingQuery) {
+        console.log('Attempted to query with', queryText);
+        console.log('Error making query', errorMakingQuery);
+        res.sendStatus(500);
+      } else {
+        console.log('/crave result:', result.rows);
+        // Send back the results
+        res.sendStatus(200);
+      }
+    });
+    }
+  });
+});
+
+
 
 // get updated usage data and send back to client
 router.get('/dash', function(req, res) {

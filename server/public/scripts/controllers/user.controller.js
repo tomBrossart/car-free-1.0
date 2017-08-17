@@ -69,7 +69,12 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     });
   };
 
-
+  $scope.deleteCraving = function(crave) {
+    $http.delete('/user/crave/' + crave.id).then(function(response) {
+      console.log("Res from $scope.deleteCrave: ", response);
+      vm.userService.refCrave();
+    });
+  };
 
 // method to display additional motivation msg/img
 // $scope.loadDash();
@@ -106,13 +111,13 @@ function DialogController($scope, $mdDialog, crave) {
     });
   };
 
-  $scope.updateCrave = function(ev) {
-    console.log("specific craving is", ev);
+  $scope.updateCrave = function() {
+    console.log("specific craving is", crave);
     console.log("Updating craving in db -- ", $scope.crave);
     $http.put('/user/crave/' + crave.id, $scope.crave).then(function(response) {
       console.log("Res from $scope.updateCrave: ", response);
       vm.userService.refCrave();
-      vm.craveToast(ev);
+      // vm.craveToast(ev);
     });
   };
 
