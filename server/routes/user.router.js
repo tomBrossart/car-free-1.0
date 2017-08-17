@@ -192,7 +192,7 @@ router.get('/cravings', function(req, res) {
         res.sendStatus(500);
       } else {
       var queryText = "SELECT * FROM cravings WHERE user_id = $1;";
-      client.query(queryText, [userID], function (errorMakingQuery, result) {
+      client.query(queryText, [userInfo.userID], function (errorMakingQuery, result) {
         done();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);

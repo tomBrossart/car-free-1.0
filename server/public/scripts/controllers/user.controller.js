@@ -5,6 +5,11 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
   vm.userService = UserService;
   $scope.userObject = UserService.userObject;
 
+  console.log("$scope.user...", $scope.userObject);
+  // Why is this one not working??
+  console.log("$scope.crave...", $scope.userObject.craveArray);
+
+
   // when user clicks "I had a craving" button
   $scope.showAC = function(ev) {
     console.log('User had a craving, let em enter it and then show them support');
@@ -42,6 +47,7 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 // method to display additional motivation msg/img
 // $scope.loadDash();
 vm.userService.refDash();
+vm.userService.refCrave();
 
 function DialogController($scope, $mdDialog) {
   $scope.hide = function() {
@@ -63,6 +69,7 @@ function DialogController($scope, $mdDialog) {
     $http.post('/user/crave', $scope.crave).then(function(response) {
       console.log("Res from $scope.addCrave: ", response);
       vm.userService.refDash();
+      vm.userService.refCrave();
       vm.craveToast(ev);
     });
     // $mdDialog.show(
