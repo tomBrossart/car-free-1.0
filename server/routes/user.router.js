@@ -97,7 +97,7 @@ router.post('/crave', function(req, res) {
   });
 });
 
-// post new craving to db
+// put updated craving to db
 router.put('/crave/:id', function(req, res) {
   console.log('put /user/crave route', req.body);
 
@@ -161,7 +161,6 @@ router.delete('/crave/:id', function(req, res) {
     }
   });
 });
-
 
 
 // get updated usage data and send back to client

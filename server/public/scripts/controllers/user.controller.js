@@ -83,11 +83,10 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
 
 // add motivation card to favs
 
-$scope.addFav = function(tile) {
-  $http.put('user/fav/' + tile).then(function(response) {
-    console.log("Res from $scope.addFav: ", response);
-    vm.craveToast();
-  });
+$scope.shareFav = function(tile) {
+  // pop open share menu with links to major social channels
+    // vm.craveToast();
+    console.log("Share with yo friends!");
 };
 
 // method to display additional motivation msg/img
