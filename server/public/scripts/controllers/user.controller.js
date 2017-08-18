@@ -81,6 +81,15 @@ myApp.controller('UserController', function($scope, $http, $location, UserServic
     });
   };
 
+// add motivation card to favs
+
+$scope.addFav = function(tile) {
+  $http.put('user/fav/' + tile).then(function(response) {
+    console.log("Res from $scope.addFav: ", response);
+    vm.craveToast();
+  });
+};
+
 // method to display additional motivation msg/img
 // $scope.loadDash();
 vm.userService.refDash();
@@ -133,7 +142,9 @@ function DialogController($scope, $mdDialog, crave) {
 this.tiles = buildGridModel({
   icon : "",
   title: "",
-  background: ""
+  background: "",
+  text: "",
+  destination: ""
 });
 
 function buildGridModel(tileTmpl){
@@ -144,41 +155,48 @@ function buildGridModel(tileTmpl){
     it = angular.extend({},tileTmpl);
     //  it.icon  = it.icon + (j+1);
     //  it.title = it.title + (j+1);
-    it.span  = { row : 1, col : 1 };
+    it.span  = { row : 2, col : 1.5 };
 
     switch(j+1) {
       case 1:
       it.icon = "attach_money";
       it.title = "Financial";
-      it.background = "red";
-      it.span.row = it.span.col = 0.5;
+      it.text = "Take a deep breath. Notice if you feel healthier being carFree.";
+      it.background = "one";
+      it.destination = "www.google.com";
+      it.span.row = it.span.col = 1.5;
       break;
       case 2:
-      it.background = "green";
+      it.background = "two";
       it.icon = "favorite";
       it.title = "Health/Wellness";
+      it.text = "Engage carFree/car-lite subreddits including the LowCar, NoCar and CarFree.";
       break;
       case 3:
       it.icon = "public";
       it.title = "Environmental";
-      it.background = "darkBlue";
+      it.background = "three";
+      it.text = "Read 'How to Live Well Without Owning a Car: Save Money, Breathe Easier, and Get More Mileage Out of Life' ";
       break;
       case 4:
       it.icon = "attach_money";
       it.title = "Adventure";
-      it.background = "blue";
+      it.background = "four";
+      it.text = "Check out some blogs/articles on carFree living, including Mr. Free at 33, and 4 Secrets to Car Free Living.";
       it.span.col = 2;
       break;
       case 5:
       it.icon = "people";
-      it.title = "Peer Pressure";
-      it.background = "red";
+      it.title = "People - Social";
+      it.background = "five";
+      it.text = "Buy an electric bike!";
       it.span.row = it.span.col = 0.5;
       break;
       case 6:
       it.icon = "gesture";
       it.title = "Other";
-      it.background = "pink";
+      it.background = "six";
+      it.text = "Create a list of 10 memorable transit interactions you’ve had since becoming carFree.";
       break;
       //    case 7: it.background = "darkBlue";      break;
       //    case 8: it.background = "purple";        break;
@@ -191,22 +209,6 @@ function buildGridModel(tileTmpl){
   }
   return results;
 }
-
-    $scope.cravings = [{
-      intensity: 5,
-      notes: "asdfasdf",
-      date: "12/12/1222",
-      location: "here and there"
-    },
-    {
-      intensity: 5,
-      notes: "asdfaasfasdfasdfasdfasdfasdfasdfadfasdfadfafasdf",
-      date: "12/12/1222",
-      location: "here and there"
-    },
-  ];
-
-
 
 
 

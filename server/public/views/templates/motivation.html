@@ -1,10 +1,7 @@
 <!-- <div layout="column" layout-align="center center"> -->
   <md-toolbar layout="row" md-scroll-shrink md-hue-2>
-    <div flex="80" class="md-toolbar-tools">Dealing with cravings</div>
+    <div flex="80" class="md-toolbar-tools">Ideas for managing cravings</div>
   </md-toolbar>
-  <div layout="row" flex layout-align="center center">
-    <h3>Tap a card for tips:</h3>
-  </div>
     <md-grid-list
     md-cols="2" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
     md-row-height-gt-md="1:1" md-row-height="1:1"
@@ -17,8 +14,15 @@
     md-colspan-xs="0.5"
     ng-class="tile.background"
     ng-click="selectMotivation(tile.title)">
-    <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon>
-    <md-grid-tile-footer><h3>{{tile.title}}</h3></md-grid-tile-footer>
+    <p>{{tile.text}}</p>
+    <!-- <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon> -->
+    <md-grid-tile-footer>
+      <div layout=row layout-align="end stretch">
+          <md-button href="{{tile.destination}}">
+            <md-icon class="material-icons" ng-click="addFav(tile)">favorite</md-icon>
+          </md-button>
+        </div>
+      </md-grid-tile-footer>
   </md-grid-tile>
 </md-grid-list>
 <div layout="row" layout-margin>
