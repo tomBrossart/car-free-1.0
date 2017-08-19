@@ -2,7 +2,7 @@
 
 carFree is a full-stack mobile web application to support people who choose to live carFree by helping them track/visualize their experience. It provides the user with a dashboard showing a variety of data to help them stay connected to the progress, including: their total time carFree, the money they’ve saved, as well as modules to help the user Track/Analyze their cravings and Save up for a Purchase.
 
-Link to [carFree page](heroku.com)
+Link to [carFree page](https://carfreeapp.herokuapp.com/#/home)
 
 ## Built With
 
