@@ -1,46 +1,22 @@
 <div layout="column" layout-align="center center">
 <md-card>
-  <!-- <md-card-header layout-margin>
-    <md-card-avatar>
-      <img ng-src="back1.png"/>
-    </md-card-avatar>
-      </md-card-header>  -->
-    <!-- <md-card-header-text>
-      <span class="md-title"> <span> {{ userObject.userName }} </span>'s Account</span>
-      <span class="md-subhead"> Joined <span> {{ userObject.start_date | date }} </span> </span>
-    </md-card-header-text>
--->
-  <!-- <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">{{ motivationMsg }}</span>
-    </md-card-title-text>
-  </md-card-title> -->
   <md-card-content>
     <md-list>
       <md-subheader class="md-no-sticky">Account Info</md-subheader>
         <!-- <md-list-item> Core need for car: {{ core_need }} </md-list-item> -->
         <md-list-item> Name:  <h4> {{ userObject.userName }} </h4> </md-list-item>
-        <md-list-item> Start date: <h4>{{ userObject.start_date | date }} </h4> </md-list-item>
+        <md-list-item> Joined carFree: <h4>{{ userObject.start_date | date }} </h4> </md-list-item>
+        <md-list-item> FfC-day (Freedom from car day): <h4>{{ userObject.quitDate | date }} </h4> </md-list-item>
         <md-list-item> Motivation to use car less: <h4>{{ userObject.motivation }} </h4> </md-list-item>
 
       <md-divider></md-divider>
 
-      <!-- <md-subheader class="md-no-sticky">Goal Usage</md-subheader>
-        <md-list-item> Goal usage: {{ goal_usage }}</md-list-item>
-        <md-list-item> Goal date: {{ goal_date }}</md-list-item>
-      <md-divider></md-divider>
-
-      <md-subheader class="md-no-sticky">Current Information</md-subheader>
-        <md-list-item> Current day: {{ current_day}} </md-list-item>
-        <md-list-item> Current usage: {{ }} </md-list-item>
-        <md-list-item> {{ }} total trips, since starting on {{ start_date}} </md-list-item>
-      <md-divider></md-divider> -->
-
 
     </md-list>
     <md-card-actions layout="row" layout-align="center center">
-      <md-button class="md-primary md-raised" ng-click="editProfile($event)">Edit Profile</md-button>
-      <md-button name="button" ng-click="deleteProfile($event)" class="md-warn md-raised">Delete Profile</md-button>
+      <h4>Coming Soon</h4>
+      <md-button ng-disabled="true" class="md-primary md-raised" ng-click="editProfile($event)">Edit Profile</md-button>
+      <md-button ng-disabled="true" name="button" ng-click="deleteProfile($event)" class="md-warn md-raised">Delete Profile</md-button>
     </md-card-actions>
   </md-card-content>
 </md-card>

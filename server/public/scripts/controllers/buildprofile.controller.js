@@ -68,35 +68,35 @@ myApp.controller('BuildController', function($scope, $http, $location, UserServi
         case 1:
         it.icon = "attach_money";
         it.title = "Financial";
-        it.background = "red";
+        it.background = "one";
         it.span.row = it.span.col = 0.5;
         break;
         case 2:
-        it.background = "green";
+        it.background = "two";
         it.icon = "favorite";
-        it.title = "Health/Wellness";
+        it.title = "Health & Wellness";
         break;
         case 3:
         it.icon = "public";
         it.title = "Environmental";
-        it.background = "darkBlue";
+        it.background = "three";
         break;
         case 4:
         it.icon = "attach_money";
         it.title = "Adventure";
-        it.background = "blue";
+        it.background = "four";
         it.span.col = 2;
         break;
         case 5:
         it.icon = "people";
         it.title = "Peer Pressure";
-        it.background = "red";
+        it.background = "five";
         it.span.row = it.span.col = 0.5;
         break;
         case 6:
         it.icon = "gesture";
         it.title = "Other";
-        it.background = "pink";
+        it.background = "six";
         break;
       }
 

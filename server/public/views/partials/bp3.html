@@ -6,18 +6,25 @@
     <md-icon flex class="material-icons">looks_3</md-icon>
   </md-toolbar>
 
-<form ng-submit="submitGoal()">
-    <div layout="column">
-        <h4 flex>When did you become carFree?</h4>
-        <md-datepicker flex layout-align="center center" ng-model="goalDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+<div layout="column" layout-align="start center" >
+  <form name="dateForm" ng-submit="submitGoal()">
+    <div flex>
+        <h4>When did you become carFree?</h4>
+        <md-datepicker name="date" ng-model="goalDate" required md-no-asterisk md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    </div>
+    <div ng-messages="dateForm.date.$error">
+      <div ng-message="required">This is required.</div>
     </div>
 
       <!-- <p>We'll tell you when you've earned a new badge and how long you've been car free if you let us send you notifications</p> -->
-
+      <br>
+      <br>
       <div layout="row" layout-align="center end">
         <!-- <md-button class="md-hue-2 md-raised" type="skip">Skip</md-button> -->
         <md-button class="md-primary md-raised md-hue-4" type="submit">Enter</md-button>
     </div>
   </form>
+</div>
+
 
 </div>

@@ -16,28 +16,29 @@
   </md-card-title> -->
   <md-card-content>
     <md-list>
-      <md-subheader class="md-no-sticky">Logistics Resources</md-subheader>
-        <md-list-item> <a href="www.reddit.com/carfree">CarFree subreddit </a></md-list-item>
-        <md-list-item> Links links links </md-list-item>
+      <md-subheader class="md-no-sticky">Community Resources</md-subheader>
+        <md-list-item> <a ng-href="https://www.reddit.com/r/carfree/">CarFree subreddit </a></md-list-item>
+        <md-list-item> <a ng-href="https://www.reddit.com/r/lowcar/">LowCar subreddit </a></md-list-item>
+        <md-list-item> <a ng-href="https://www.reddit.com/r/nocar/"> NoCar subreddit </a></md-list-item>
       <md-divider></md-divider>
 
-      <md-subheader class="md-no-sticky">Motivation Resources</md-subheader>
-        <md-list-item> Links links links</md-list-item>
-        <md-list-item> asdfasdf </md-list-item>
+      <md-subheader class="md-no-sticky">Bike/Transit Resources</md-subheader>
+      <md-list-item> <a ng-href="http://www.bikeforums.net/living-car-free/917638-your-motivation-becoming-car-free-car-light-10.html#post19803641"> Bike Forum </a></md-list-item>
+      <md-list-item> <a ng-href="https://www.metrotransit.org/"> Local Transit Websites </a></md-list-item>
+      <md-list-item> <a ng-href="https://www.google.com/maps">Google Maps </a> </md-list-item>
+      <md-list-item> is the greatest -- plan and save your bike/transit routes -- and even summon a Lyft/Uber straight from the app!</md-list-item>
       <md-divider></md-divider>
 
       <md-subheader class="md-no-sticky">Financial Resources</md-subheader>
-        <md-list-item> Links links links </md-list-item>
-        <md-list-item> Links links links </md-list-item>
-        <md-list-item> Links links links </md-list-item>
+      <md-list-item> <a ng-href="https://www.mint.com/"> Mint -- Personal Finance App </a></md-list-item>
       <md-divider></md-divider>
 
 
     </md-list>
     <md-card-actions layout="row" layout-align="center center">
       <h4>Coming Soon:</h4>
-      <md-button class="md-primary md-raised" ng-click="addResource($event)">Add a Resource</md-button>
-      <md-button name="button" ng-click="editResource($event)" class="md-warn md-raised">Edit Resources</md-button>
+      <md-button ng-disabled="true" class="md-primary md-raised" ng-click="addResource($event)">Add a Resource</md-button>
+      <md-button ng-disabled="true" name="button" ng-click="editResource($event)" class="md-warn md-raised">Edit Resources</md-button>
     </md-card-actions>
   </md-card-content>
 </md-card>

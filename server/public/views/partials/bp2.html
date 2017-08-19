@@ -10,32 +10,28 @@
 
     <div layout="column" md-padding>
       <h4>How many trips did/do you drive per week (avg of course)?</h4>
-        <md-input-container flex="none" style="margin: 10px;">
+        <md-input-container flex="none" style="margin: 10px;" required>
           <label>I drove...</label>
           <md-select ng-model="weekTrips">
             <md-option ng-repeat="trip in trips" value="{{trip}}">{{trip}} times/week</md-option>
           </md-select>
         </md-input-container>
         <h4>How long was/is your average trip?</h4>
-        <md-input-container flex="none" style="margin: 10px;">
+        <md-input-container required flex="none" style="margin: 10px;">
           <label>About...</label>
           <md-select ng-model="avgTrip">
             <md-option ng-repeat="avg in avgs" value="{{avg}}">{{avg}} minutes</md-option>
           </md-select>
         </md-input-container>
-
-        <h1 class="md-title">We use this information to show you how much time and money you’re saving by going car free.</h1>
-
       <!-- <p ng-if="vm.coreNeed">You currently drive -{{currentUsage.toLowerCase()}}- times per week, and you need your car
         for {{coreNeed}}.</p> -->
       <div layout="row" layout-align="center end">
         <md-button class="md-primary md-raised md-hue-2" type="submit">Nearly There</md-button>
       </div>
 
+      <div layout="row" layout-align="center center">
+        <h6>We use this information to show you how much time and money you’re saving by being car free.</h6>
       </div>
-
-
-
-
     </form>
+  </div>
   </div>

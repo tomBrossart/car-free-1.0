@@ -170,7 +170,7 @@ function buildGridModel(tileTmpl){
       it.background = "two";
       it.icon = "favorite";
       it.title = "Health/Wellness";
-      it.text = "Engage carFree/car-lite subreddits including the LowCar, NoCar and CarFree.";
+      it.text = "Engage carFree/car-lite subreddits including LowCar, NoCar and CarFree.";
       break;
       case 3:
       it.icon = "public";
