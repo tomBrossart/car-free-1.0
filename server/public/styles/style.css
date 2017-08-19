@@ -154,3 +154,10 @@ md-icon {
   font-weight: 700;
   width: 100%;
   text-align: center; }
+
+
+  /* STYLING DASH*/
+
+  .ng-header {
+    font-size: 1.75rem;
+  }

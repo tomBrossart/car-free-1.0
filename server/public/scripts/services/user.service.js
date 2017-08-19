@@ -4,10 +4,8 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
   var userObject = {};
   // var craveArray = [];
   var originatorEv;
-
-
-  // Does this need to be in
-
+  var annualCost = 9122;
+  // var days = 0;
 
 
   function buildToggler(componentId) {
@@ -18,7 +16,22 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
 
   return {
     userObject : userObject,
-    // craveArray : craveArray,
+    // days : days,
+
+    // elapsedTime : function(date) {
+    //   // if (!date) return; ADD IN VALIDATION LOGIC FOR EDGE CASES
+    //   var time = Date.parse(date),
+    //   timeNow = new Date().getTime(),
+    //   difference = timeNow - time,
+    //   seconds = Math.floor(difference / 1000),
+    //   minutes = Math.floor(seconds / 60),
+    //   hours = Math.floor(minutes / 60),
+    //   days = Math.floor(hours / 24),
+    //   remHours = Math.floor(((hours / 24) - days)/ 60),
+    //   remMinutes = Math.floor(((((hours / 24) - days)/ 60) - remHours)/ 60);
+    //   // userObject.elapsedTime = days;
+    //   return days;
+    // },
 
     getuser : function(){
       console.log('UserService -- getuser');
@@ -50,16 +63,29 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
       });
     },
 
-    refDash : function() {
-      console.log('UserService -- refreshDash');
+    refDash : function(date) {
+      console.log('UserService -- refreshDash', date);
+        // if (!date) return; ADD IN VALIDATION LOGIC FOR EDGE CASES
       $http.get('/user/dash').then(function(response) {
         console.log('Response on refreshDash: ', response);
+        var time = Date.parse(response.data[0].goal_date),
+        timeNow = new Date().getTime(),
+        difference = timeNow - time,
+        seconds = Math.floor(difference / 1000),
+        minutes = Math.floor(seconds / 60),
+        hours = Math.floor(minutes / 60),
+        days = Math.floor(hours / 24),
+        remHours = Math.floor(((hours / 24) - days)/ 60),
+        remMinutes = Math.floor(((((hours / 24) - days)/ 60) - remHours)/ 60);
+        console.log(days, hours, minutes, seconds);
         userObject.quitDate =  response.data[0].goal_date;
-        userObject.moneySaved =  (response.data[0].avg_trip * 5);
-        userObject.moneyPerYear =  (response.data[0].avg_trip * 5);
-        userObject.timeNotAlone =  (response.data[0].avg_trip * 5);
-        userObject.notDriven =  (response.data[0].week_trips * 5);
+        userObject.moneySaved =  (response.data[0].week_trips * (annualCost/52));
+        userObject.moneyPerYear =  annualCost;
+        userObject.timeNotAlone =  (response.data[0].avg_trip * days);
+        userObject.notDriven =  (response.data[0].week_trips * (days/7));
         userObject.cravingsResisted =  (response.data[0].total_cravings);
+        userObject.start_date =  (response.data[0].start_date);
+        userObject.motivation =  (response.data[0].motivation);
         // ((new Date().getTime()) - (new Date(quitDate).getTime()));
         console.log("userObject", userObject);
       });
@@ -79,4 +105,5 @@ myApp.factory('UserService', function($http, $location, $mdSidenav){
     }
 
   };
+
 });

@@ -70,7 +70,8 @@ router.post('/crave', function(req, res) {
     desire : req.body.desire,
     location : req.body.location,
     notes :  req.body.notes,
-    date : new Date()
+    date : new Date(),
+
   };
 
   pool.connect(function(err, client, done) {

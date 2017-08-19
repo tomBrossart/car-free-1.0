@@ -1,9 +1,9 @@
 myApp.controller('UserController', function($scope, $http, $location, UserService, $mdBottomSheet, $mdSidenav,  $mdDialog, $mdToast) {
   console.log('UserController created');
   var vm = this;
-  //  TRYING TO SWITCH TO $scope
   vm.userService = UserService;
   $scope.userObject = UserService.userObject;
+  var quitDate = $scope.userObject.quitDate;
 
   console.log("$scope.user...", $scope.userObject);
   console.log("$scope.crave...", $scope.userObject.craveArray);
@@ -93,6 +93,7 @@ $scope.shareFav = function(tile) {
 // $scope.loadDash();
 vm.userService.refDash();
 vm.userService.refCrave();
+// vm.userService.elapsedTime($scope.userObject.quitDate);
 
 // controller for Dialogs...
 function DialogController($scope, $mdDialog, crave) {
@@ -160,7 +161,7 @@ function buildGridModel(tileTmpl){
       case 1:
       it.icon = "attach_money";
       it.title = "Financial";
-      it.text = "Take a deep breath. Notice if you feel healthier being carFree.";
+      it.text = "Breath. Notice how you feel different being carFree.";
       it.background = "one";
       it.destination = "www.google.com";
       it.span.row = it.span.col = 1.5;

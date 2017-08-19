@@ -1,14 +1,15 @@
 <div layout="column" layout-align="center center">
 <md-card>
-  <md-card-header layout-margin>
+  <!-- <md-card-header layout-margin>
     <md-card-avatar>
       <img ng-src="back1.png"/>
     </md-card-avatar>
-    <md-card-header-text>
-      <span class="md-title"> <span> {{ ic.userService.userObject.userName }} </span>'s Profile</span>
-      <span class="md-subhead"> Joined <span> {{ start_date }} </span> </span>
+      </md-card-header>  -->
+    <!-- <md-card-header-text>
+      <span class="md-title"> <span> {{ userObject.userName }} </span>'s Account</span>
+      <span class="md-subhead"> Joined <span> {{ userObject.start_date | date }} </span> </span>
     </md-card-header-text>
-  </md-card-header>
+-->
   <!-- <md-card-title>
     <md-card-title-text>
       <span class="md-headline">{{ motivationMsg }}</span>
@@ -16,12 +17,15 @@
   </md-card-title> -->
   <md-card-content>
     <md-list>
-      <md-subheader class="md-no-sticky">Account Info and Original Usage (when you joined carFree)</md-subheader>
-        <md-list-item> Core need for car: {{ core_need }} </md-list-item>
-        <md-list-item> Motivation to use car less: {{ motivation }} </md-list-item>
+      <md-subheader class="md-no-sticky">Account Info</md-subheader>
+        <!-- <md-list-item> Core need for car: {{ core_need }} </md-list-item> -->
+        <md-list-item> Name:  <h4> {{ userObject.userName }} </h4> </md-list-item>
+        <md-list-item> Start date: <h4>{{ userObject.start_date | date }} </h4> </md-list-item>
+        <md-list-item> Motivation to use car less: <h4>{{ userObject.motivation }} </h4> </md-list-item>
+
       <md-divider></md-divider>
 
-      <md-subheader class="md-no-sticky">Goal Usage</md-subheader>
+      <!-- <md-subheader class="md-no-sticky">Goal Usage</md-subheader>
         <md-list-item> Goal usage: {{ goal_usage }}</md-list-item>
         <md-list-item> Goal date: {{ goal_date }}</md-list-item>
       <md-divider></md-divider>
@@ -30,7 +34,7 @@
         <md-list-item> Current day: {{ current_day}} </md-list-item>
         <md-list-item> Current usage: {{ }} </md-list-item>
         <md-list-item> {{ }} total trips, since starting on {{ start_date}} </md-list-item>
-      <md-divider></md-divider>
+      <md-divider></md-divider> -->
 
 
     </md-list>

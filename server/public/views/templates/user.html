@@ -1,55 +1,61 @@
-<div layout-align="center center">
-  <div flex="100" style="background-image:url('back2.png'); height:300px; padding:10px" layout="column">
-  <div layout-align="center center" layout-margin>
-    <span class="ng-header">Time car free</span>
+<div layout=column style="height:700px">
+
+
+<div layout="row" flex="25" layoutlayout-align="center center">
+  <div flex="40" style="background-image:url('back2.png'); padding:10px">
+  <div layout-align="center center">
+    <h5>Time car free:</h5>
     <h2> {{ userObject.quitDate | elapsed }}</h2>
-    <!-- INSERT COUNTER HERE -->
+    <!-- <h2> {{ userObject.elapsedTime }} </h2> -->
   </div>
 </div>
 
 
-  <div style="height:200px" layout-align="center center">
-    <div layout-margin>
+  <div flex="60" layout-align="center center" layout-margin>
+    <!--  -->
 
-    <h3>Money saved:</h3>
-    <h3> {{userObject.moneySaved | currency}} </h3>
-    <h5>Per year:</h5>
-    <h5> {{ userObject.moneyPerYear | currency }} </h5>
-  </div>
+    <h5>Money saved so far:</h5>
+    <h2> {{userObject.moneySaved | currency}} </h2>
+    <h5>Annual savings:</h5>
+    <h2> {{ userObject.moneyPerYear | currency }} </h2>
+  <!-- </div> -->
+</div>
 </div>
 
-  <div style="height:300px;background-image:url('back2.png')" layout-align="center center">
+
+  <div layout="row" flex="15" style="background-image:url('back2.png')" layout-align="center center">
     <div layout-align="center center" layout-margin>
-    <h3>Your carFree adventure so far, by the numbers:</h3>
-    <h5>Time not spent alone in traffic: {{ userObject.timeNotAlone }} minutes</h5>
-    <h5> Cartrips not driven: {{ userObject.notDriven }}</h5>
-    <h5>Cravings resisted: {{ userObject.cravingsResisted }}</h5>
+    <!-- <h5>You carFree, by the numbers:</h5> -->
+    <h6>Time not spent alone in traffic: <span class="ng-header">{{ userObject.timeNotAlone }} minutes</span></h6>
+    <h6> Cartrips not driven:  <span class="ng-header"> {{ userObject.notDriven | number }} </span></h6>
+    <!-- <h5>Cravings resisted: {{ userObject.cravingsResisted }}</h5> -->
   </div>
 </div>
 
-
-  <div style="height:300px" layout="row" flex="100" layout-align="center">
-    <div layout-align="center center" layout-margin>
+<div layout="row" flex="29" layout-align="center center">
+    <div layout="column" layout-align="center center" layout-margin>
       <!-- <div flex="100" style="background-image:url('img1.png')" layout-margin layout="column"> -->
 <!-- HOW TO ADD?  style="background-img:{{ motivationImg }}" -->
-            <h1>Coming soon</h1>
-            <h3>Save up for something:</h3>
-            <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button>
-</div>
-</div>
+            <h2>Coming soon</h2>
+            <h5>Save up for something:</h5>
+            <p>Motivate your monkey brain with something shiny!</p>
+            <!-- <md-button name="button" ng-click="craving($event)" class="md-primary md-raised">Explore</md-button> -->
+    </div>
 </div>
 
-<div style="background-image:url('back2.png'); height:300px" layout="row" flex="100" layout-align="center">
-    <div flex="100" layout-margin layout-padding layout="column">
 
-    <!-- <img ng-src="{{ motivationImg }}" class="md-card-image" alt="Washed Out"> -->
-      <h3>Your Cravings</h3>
+<div style="background-image:url('back2.png')" layout="column" flex="31" layout-align="center center">
+  <h5>Your Cravings</h5>
+  <div layout-align="center" layout="row" flex layout-margin>
+    <div layout-align="center center" flex layout-margin>
+      <h6>Changing habits requires support and reinforcement. Record when/where you have a craving to drive so you can adapt to those situations.</h6>
+    </div>
       <div flex layout="column" layout-align="center center">
           <md-button name="button" ng-click="showAC($event)" class="md-primary md-raised">Add craving</md-button>
           <md-button class="md-accent md-raised" ng-click="reviewCravings()" aria-label="Review">Review Cravings</md-button>
           <md-button class="md-accent md-raised" href="#/motivation" aria-label="Review">Stay Motivated</md-button>
       </div>
   </div>
-</div>
+
 
 </div>

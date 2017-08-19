@@ -14,15 +14,30 @@
     md-colspan-xs="0.5"
     ng-class="tile.background"
     ng-click="selectMotivation(tile.title)">
-    <p>{{tile.text}}</p>
+    <div layout="column" layout-align="center center">
+      <div flex="80" layout-margin>
+          <p>{{tile.text}}</p>
+      </div>
+      <div layout="row" layout-align="end center" flex>
+        <md-button>
+          <a ng-href="https://www.facebook.com">
+          <md-icon class="material-icons" >share</md-icon>
+          </a>
+        </md-button>
+    </div>
+  </div>
+
     <!-- <md-icon class="material-icons" aria-label="Close dialog">{{tile.icon}}</md-icon> -->
-    <md-grid-tile-footer>
-      <div layout=row layout-align="end stretch">
+    <!-- <md-grid-tile-footer>
+      <div layout="column" layout-align="center center">
+        <div layout="row" layout-align="end center">
+          <div class=""></div>
           <md-button>
             <md-icon class="material-icons" ng-click="shareFav(tile)">share</md-icon>
           </md-button>
         </div>
-      </md-grid-tile-footer>
+        </div>
+      </md-grid-tile-footer> -->
   </md-grid-tile>
 </md-grid-list>
 <div layout="row" layout-margin>

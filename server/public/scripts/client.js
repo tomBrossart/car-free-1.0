@@ -1,5 +1,5 @@
 var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
-// trying to add custom filter
+// this filter calculates time elapsed since user stopped using car
 .filter('elapsed', function(){
     return function(date){
         if (!date) return;
@@ -14,7 +14,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
             remMinutes = Math.floor(((((hours / 24) - days)/ 60) - remHours)/ 60);
         if (days > 1) {
             // TESTING TO SEE WHAT IS CALCULATING return time + "time" + timeNow + " timeNow " + remHours + " hours " + remMinutes + " minutes!";
-            return days + " days " + remHours + " hours " + remMinutes + " minutes!";
+            return days + " days!";
         } else if (days == 1) {
             return "1 day ago";
         } else if (hours > 1) {
