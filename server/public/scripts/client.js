@@ -89,6 +89,15 @@ myApp.config(function($routeProvider, $locationProvider, $mdThemingProvider) {
         }
       }
     })
+    .when('/about', {
+      templateUrl: '/views/templates/about.html',
+      controller: 'InfoController as ic',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/resources', {
       templateUrl: '/views/templates/resources.html',
       controller: 'InfoController as ic',

@@ -60,7 +60,13 @@
       <section layout="row" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
         md-disable-backdrop md-whiteframe="4">
-        <md-toolbar class="md-theme-indigo md-hue-2"> <h1 class="md-toolbar-tools">{{nc.userService.userObject.userName}}'s Account</h1>
+        <md-toolbar class="md-theme-indigo md-hue-2">
+          <div layout="row" layout-align="center center">
+          <h1 class="md-toolbar-tools">{{nc.userService.userObject.userName}}'s Account</h1>
+          <md-button layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
+            <md-icon class="material-icons">close</md-icon>
+           </md-button>
+         </div>
         </md-toolbar>
 
     <md-content md-theme="docs-dark" layout-margin layout-align="center">
@@ -87,14 +93,12 @@
           <div layout="row" flex="100">
             <md-button class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()" href="#/resources">Resources</md-button>
           </div>
+          <div layout="row" flex="100">
+            <md-button class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()" href="#/about">About carFree</md-button>
+          </div>
             <div layout="row" flex="100">
             <md-button class="md-primary md-hue-4 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
           </div>
-            <div layout="row" flex="100">
-            <md-button layout-align="end bottom" ng-click="nc.userService.toggleLeft()" class="md-warn md-raised">
-              <md-icon class="material-icons">close</md-icon>
-             </md-button>
-           </div>
            </div>
           </md-card-actions>
         </md-card-content>

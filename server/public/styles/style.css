@@ -143,7 +143,7 @@ md-icon {
   padding-bottom: 32px; }
 
  md-grid-tile md-grid-tile-footer {
-  background: rgba(0, 0, 0, 0.68);
+  background: #115a93;
   height: 36px; }
 
  md-grid-tile-footer figcaption {
@@ -161,3 +161,26 @@ md-icon {
   .ng-header {
     font-size: 1.75rem;
   }
+
+  /* STYLING OTHER PAGES*/
+.md-subheader-content {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+.md-subheader-inner {
+  margin: 5px;
+}
+
+md-list-item {
+  font-size: 1.15rem;
+}
+
+a {
+  color: skyBlue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: orange;
+}
