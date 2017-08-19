@@ -1,6 +1,8 @@
-# carFree --
+# carFree
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+carFree is a full-stack mobile web application to support people who choose to live carFree by helping them track/visualize their experience. It provides the user with a dashboard showing a variety of data to help them stay connected to the progress, including: their total time carFree, the money they’ve saved, as well as modules to help the user Track/Analyze their cravings and Save up for a Purchase.
+
+Link to [carFree page](heroku.com)
 
 ## Built With
 
@@ -19,10 +21,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
-
 - [Node.js](https://nodejs.org/en/)
-- npm install --save
+- npm install --save angular, angular-animate, angular-aria, angular-material, angular-messages, angular-material-icons, angular-route, bcrypt, body-parser, express, passport, passport-local
+- [Material Icons] (https://fonts.googleapis.com/icon?family=Material+Icons)
+
 
 
 ### Installing
@@ -31,15 +33,41 @@ Steps to get the development environment running.
 
 ```sql
 CREATE TABLE "users" (
-  "id" serial primary key,
-  "username" varchar(80) not null UNIQUE,
-  "password" varchar(240) not null
+	"id" serial primary key,
+	"username" varchar(50) not null,
+	"password" varchar (120) not null
+);
+
+CREATE TABLE "profile" (
+	"id" serial primary key,
+  "current_week" date,
+	"current_day" date,
+	 "trips_this_week" integer DEFAULT 0,
+	 "avg_trip" integer DEFAULT 0,
+	 "goal_date" date,
+	  "total_cravings" integer DEFAULT 0,
+	  "user_id" integer,
+	 "week_trips" integer DEFAULT 0,
+	 "motivation" text,
+	 "start_date" date,
+	 "completed_registration" boolean DEFAULT FALSE
+);
+
+CREATE TABLE "cravings" (
+	"id" serial primary key,
+	"user_id" integer REFERENCES "users",
+	"strength_of_desire" integer,
+	"location" varchar (200),
+	"notes" varchar (500),
+	"date" date
 );
 ```
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![carFree Dashboard](/images/carFree_dash.png)
+![carFree Motivation Page](/images/carFree_motivation.png)
+![carFree Resources](/images/carFree_resources.png)
 
 ## Documentation
 
