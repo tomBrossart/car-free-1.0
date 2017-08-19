@@ -6,14 +6,14 @@ Link to [carFree page](https://carfreeapp.herokuapp.com/#/home)
 
 ## Built With
 
-CSS3
-HTML5
-AngularJS
-Angular Material (mdDialog, mdSideNav, mdToast, mdIcons)
-PostgreSQL
-Express
-Node.js
-Passport
+- CSS3
+- HTML5
+- AngularJS
+- Angular Material (mdDialog, mdSideNav, mdToast, mdIcons)
+- PostgreSQL
+- Express
+- Node.js
+- Passport
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - [Node.js](https://nodejs.org/en/)
 - npm install --save angular, angular-animate, angular-aria, angular-material, angular-messages, angular-material-icons, angular-route, bcrypt, body-parser, express, passport, passport-local
-- [Material Icons] (https://fonts.googleapis.com/icon?family=Material+Icons)
+- [Material Icons](https://fonts.googleapis.com/icon?family=Material+Icons)
 
 
 
@@ -64,14 +64,14 @@ CREATE TABLE "cravings" (
 ```
 
 ## Screen Shot
-
-![carFree Dashboard](/images/carFree_dash.png)
-![carFree Motivation Page](/images/carFree_motivation.png)
-![carFree Resources](/images/carFree_resources.png)
+carFree Dashboard:
+![carFree Dashboard](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_dash.png?raw=true)
+![carFree Motivation Page](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_motivation.png?raw=true)
+![carFree Resources](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_resources.png?raw=true)
 
 ## Documentation
 
-[Original scope] document.(https://docs.google.com/document/d/10Wff1AJMEjwTdhBk4UB5Cv-XMMN9Q2u2USDkaogekW4/edit?usp=sharing) -- Note current app has evolved significantly from initial plan.
+[Original scope document](https://docs.google.com/document/d/10Wff1AJMEjwTdhBk4UB5Cv-XMMN9Q2u2USDkaogekW4/edit?usp=sharing) -- Note current app has evolved significantly from initial plan.
 
 
 ### Completed Features
@@ -111,6 +111,6 @@ This app is not currently being updated or supported but I will get back to any 
 
 ## Acknowledgments
 
-* [Smoke Free app] (https://smokefreeapp.com/) -- beautiful quite smoking app, inspired much of the design and functionality of carFree.
+* [Smoke Free app](https://smokefreeapp.com/) -- beautiful quite smoking app, inspired much of the design and functionality of carFree.
 * Prime Digital Academy and my fantastic Antares cohort, thanks for teaching me to see and create the Matrix.
-* [AAA Report] (https://www.usatoday.com/story/news/nation/2013/04/16/aaa-car-ownership-costs/2070397/) -- Avg cost of car ownership
+* [AAA Report](https://www.usatoday.com/story/news/nation/2013/04/16/aaa-car-ownership-costs/2070397/) -- Avg cost of car ownership
