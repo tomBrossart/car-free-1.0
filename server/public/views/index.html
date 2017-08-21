@@ -42,7 +42,7 @@
 
 
 <!-- add back in scroll shrink if figured out issue md-scroll-shrink -->
-<md-toolbar  md-theme="docs-dark" class="md-hue-4" ng-controller="NavController as nc">
+<md-toolbar  md-theme="docs-dark" class="md-hue-4" style="height:700px" ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
     <md-button layout-align="start center" aria-label="Open sidenav" ng-click="nc.userService.toggleLeft()" class="md-icon-button" ng-disabled="false">
       <md-icon class="material-icons">menu</md-icon>
@@ -82,21 +82,21 @@
         </md-card-title> -->
         <md-card-content>
           <md-card-actions>
-            <div flex layout="column" layout-margin layout-align="stretch start">
+            <div flex layout="column" layout-margin layout-align="center center">
             <!-- If user is not logged in the disable Dashboard and Profile -->
             <div layout="row">
             <md-button class="md-primary md-raised" ng-disabled="false" ng-click="nc.userService.toggleLeft()" href="#/user">Dashboard</md-button>
           </div>
-          <div layout="row" flex="100">
+          <div layout="row">
             <md-button class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()" href="#/info">Account</md-button>
           </div>
-          <div layout="row" flex="100">
+          <div layout="row">
             <md-button class="md-primary md-hue-3 md-raised" ng-click="nc.userService.toggleLeft()" href="#/resources">Resources</md-button>
           </div>
-          <div layout="row" flex="100">
+          <div layout="row">
             <md-button class="md-primary md-hue-2 md-raised" ng-click="nc.userService.toggleLeft()" href="#/about">About carFree</md-button>
           </div>
-            <div layout="row" flex="100">
+            <div layout="row">
             <md-button class="md-primary md-hue-4 md-raised" ng-click="nc.userService.toggleLeft(); nc.userService.logout()">Log Out</md-button>
           </div>
            </div>

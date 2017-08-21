@@ -177,10 +177,21 @@ md-list-item {
 }
 
 a {
-  color: skyBlue;
+  color: #115a93;
   text-decoration: none;
 }
 
 a:visited {
   color: orange;
+}
+
+.md-primary {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.md-secondary {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: #115a93;
 }
