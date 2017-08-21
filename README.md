@@ -13,7 +13,8 @@ Link to [carFree page](https://carfreeapp.herokuapp.com/#/home)
 - PostgreSQL
 - Express
 - Node.js
-- Passport
+- Heroku for web deployment
+- Passport for user authentication
 
 ## Getting Started
 
@@ -22,12 +23,14 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
-- npm install --save angular, angular-animate, angular-aria, angular-material, angular-messages, angular-material-icons, angular-route, bcrypt, body-parser, express, passport, passport-local
+- [Angular Material](https://material.angularjs.org/latest/)
 - [Material Icons](https://fonts.googleapis.com/icon?family=Material+Icons)
 
 
 
 ### Installing
+
+- npm install --save angular, angular-animate, angular-aria, angular-material, angular-messages, angular-material-icons, angular-route, bcrypt, body-parser, express, passport, passport-local
 
 Steps to get the development environment running.
 
