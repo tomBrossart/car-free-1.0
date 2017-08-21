@@ -177,12 +177,14 @@ md-list-item {
 }
 
 a {
-  color: #115a93;
+  color: orange;
   text-decoration: none;
 }
 
 a:visited {
   color: orange;
+  background-color: black;
+
 }
 
 .md-primary {
