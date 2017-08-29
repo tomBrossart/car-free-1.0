@@ -114,6 +114,6 @@ This app is not currently being updated or supported but I will get back to any 
 
 ## Acknowledgments
 
-* [Smoke Free app](https://smokefreeapp.com/) -- beautiful quite smoking app, inspired much of the design and functionality of carFree.
+* [Smoke Free app](https://smokefreeapp.com/) -- beautiful quit smoking app, inspired much of the design and functionality of carFree.
 * Prime Digital Academy and my fantastic Antares cohort, thanks for teaching me to see and create the Matrix.
 * [AAA Report](https://www.usatoday.com/story/news/nation/2013/04/16/aaa-car-ownership-costs/2070397/) -- Avg cost of car ownership
