@@ -69,9 +69,8 @@ CREATE TABLE "cravings" (
 ## Screen Shot
 carFree Dashboard:
 <img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_dash.png?raw=true" width="48">
-![carFree Dashboard](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_dash.png?raw=true | width=48)
-![carFree Motivation Page](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_motivation.png?raw=true)
-![carFree Resources](https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_resources.png?raw=true)
+<img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_motivation.png?raw=true" width="48">
+<img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_resources.png?raw=true" width="48">
 
 ## Documentation
 
