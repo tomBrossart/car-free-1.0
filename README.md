@@ -66,8 +66,7 @@ CREATE TABLE "cravings" (
 );
 ```
 
-## Screen Shot
-carFree Dashboard:
+## Screen Shots
 <img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_dash.png?raw=true" width="248">
 <img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_motivation.png?raw=true" width="248">
 <img src="https://github.com/tomBrossart/car-free-1.0/blob/master/server/public/images/carFree_resources.png?raw=true" width="248">
